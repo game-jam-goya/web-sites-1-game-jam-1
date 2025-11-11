@@ -1,939 +1,0 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🏆 المرجع الأساسي لفريق MAQLUBA - Game Jam Godot 4</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        /* General Setup */
-        :root {
-            --primary: #007bff; /* Blue */
-            --secondary: #6f42c1; /* Purple */
-            --accent: #20c997; /* Teal */
-            --dark: #212529;
-            --light: #f8f9fa;
-            --success: #28a745;
-            --warning: #ffc107;
-            --danger: #dc3545;
-            --info: #17a2b8;
-            --bg-color: #f4f7f6;
-            --card-bg: #ffffff;
-            --code-bg: #272822;
-            --code-color: #f8f8f2;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Cairo', 'Tajawal', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--dark);
-            line-height: 1.8;
-            padding: 0;
-            overflow-x: hidden;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        /* Dark Mode */
-        body.dark-mode {
-            --dark: #f8f9fa;
-            --light: #212529;
-            --bg-color: #1a1a2e;
-            --card-bg: #2c3e50;
-            --code-bg: #1e1e1e;
-            color: var(--dark);
-        }
-
-        /* Container & Header */
-        .container {
-            max-width: 1800px;
-            margin: 20px auto;
-            background: var(--card-bg);
-            border-radius: 30px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-            overflow: hidden;
-        }
-
-        header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            padding: 80px 40px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            border-bottom: 8px solid var(--accent);
-        }
-
-        header h1 {
-            font-size: 4.5em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            font-weight: 900;
-        }
-
-        header p {
-            font-size: 1.6em;
-            opacity: 0.9;
-            margin: 15px 0;
-        }
-
-        .header-badge {
-            display: inline-block;
-            background: rgba(255,255,255,0.2);
-            padding: 10px 25px;
-            border-radius: 20px;
-            margin: 5px;
-            font-weight: bold;
-            transition: transform 0.3s;
-        }
-
-        .header-badge:hover {
-            transform: scale(1.05);
-        }
-
-        /* Stats */
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin: 50px 0;
-        }
-
-        .stat-card {
-            background: rgba(255,255,255,0.1);
-            padding: 20px;
-            border-radius: 15px;
-            text-align: center;
-            border: 1px solid rgba(255,255,255,0.3);
-            transition: all 0.3s;
-        }
-
-        .stat-card:hover {
-            background: rgba(255,255,255,0.2);
-            transform: translateY(-5px);
-        }
-
-        .stat-card h3 {
-            font-size: 3em;
-            margin-bottom: 5px;
-            font-weight: 900;
-        }
-
-        .stat-card p {
-            font-size: 1.1em;
-            opacity: 0.9;
-        }
-
-        /* Team Info */
-        .team-info {
-            padding: 60px;
-            background-color: var(--light);
-            border-bottom: 5px solid var(--primary);
-        }
-
-        .team-info h2 {
-            color: var(--secondary);
-            font-size: 2.5em;
-            text-align: center;
-            margin-bottom: 40px;
-            font-weight: 700;
-        }
-
-        .team-members {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .member {
-            background: var(--card-bg);
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border-right: 5px solid var(--accent);
-            transition: all 0.3s;
-        }
-
-        .member:hover {
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            transform: translateY(-3px);
-        }
-
-        .member h3 {
-            color: var(--primary);
-            font-size: 1.5em;
-            margin-bottom: 10px;
-        }
-
-        .member p {
-            font-size: 0.95em;
-            color: #6c757d;
-        }
-
-        /* Navigation */
-        nav {
-            background-color: var(--dark);
-            padding: 20px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            padding: 10px 20px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 20px;
-            transition: all 0.3s;
-            font-weight: 600;
-        }
-
-        nav a:hover {
-            background: var(--primary);
-            transform: scale(1.05);
-        }
-
-        /* Content */
-        .content {
-            padding: 60px;
-        }
-
-        .section {
-            margin-bottom: 80px;
-            border-bottom: 1px dashed #ccc;
-            padding-bottom: 40px;
-        }
-
-        .section h2 {
-            color: var(--secondary);
-            font-size: 3em;
-            margin-bottom: 40px;
-            border-right: 5px solid var(--primary);
-            padding-right: 15px;
-            display: inline-block;
-            font-weight: 900;
-        }
-
-        .subsection {
-            margin-bottom: 40px;
-        }
-
-        .subsection h3 {
-            color: var(--primary);
-            font-size: 2em;
-            margin-bottom: 20px;
-            border-bottom: 2px solid var(--accent);
-            padding-bottom: 5px;
-        }
-
-        /* Resource Card */
-        .resource-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 25px;
-            margin-top: 20px;
-        }
-
-        .resource-card {
-            background: var(--card-bg);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            border-left: 5px solid var(--info);
-            transition: all 0.3s;
-        }
-
-        .resource-card:hover {
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-            transform: translateY(-2px);
-        }
-
-        .resource-card h4 {
-            color: var(--dark);
-            font-size: 1.3em;
-            margin-bottom: 10px;
-        }
-
-        .resource-card p {
-            color: #6c757d;
-            font-size: 0.9em;
-            margin-bottom: 15px;
-        }
-
-        .resource-card a {
-            display: inline-block;
-            background: var(--accent);
-            color: white;
-            padding: 8px 15px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 600;
-            transition: background-color 0.3s;
-        }
-
-        .resource-card a:hover {
-            background: #17a2b8;
-        }
-
-        .tags {
-            margin-bottom: 10px;
-        }
-
-        .tag {
-            display: inline-block;
-            padding: 4px 8px;
-            margin-left: 5px;
-            border-radius: 5px;
-            font-size: 0.75em;
-            font-weight: bold;
-            color: white;
-        }
-
-        .tag.role { background-color: var(--danger); }
-        .tag.type { background-color: var(--success); }
-        .tag.free { background-color: var(--info); }
-        .tag.premium { background-color: var(--warning); }
-
-        /* Code Blocks */
-        .code-block {
-            background: var(--code-bg);
-            color: var(--code-color);
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
-            overflow-x: auto;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            border-left: 5px solid var(--accent);
-        }
-
-        .code-block pre {
-            margin: 0;
-            font-family: 'Consolas', 'Courier New', monospace;
-            font-size: 0.9em;
-            line-height: 1.5;
-        }
-
-        .code-block code {
-            color: #a6e22e; /* Green for code */
-        }
-
-        .code-block .comment {
-            color: #75715e; /* Gray for comments */
-        }
-
-        .code-block .keyword {
-            color: #f92672; /* Pink for keywords */
-        }
-
-        .code-block .string {
-            color: #e6db74; /* Yellow for strings */
-        }
-
-        /* Highlight & Tips */
-        .highlight {
-            background: #fff3cd;
-            border-right: 5px solid var(--warning);
-            padding: 20px;
-            border-radius: 10px;
-            margin: 30px 0;
-            color: #856404;
-        }
-
-        .quick-tips {
-            background: #d4edda;
-            border-right: 5px solid var(--success);
-            padding: 20px;
-            border-radius: 10px;
-            margin: 30px 0;
-            color: #155724;
-        }
-
-        .quick-tips h3 {
-            color: #0c5460;
-            margin-bottom: 10px;
-        }
-
-        .quick-tips ul {
-            list-style-position: inside;
-            padding-right: 15px;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--dark);
-            color: white;
-            text-align: center;
-            padding: 40px;
-            margin-top: 40px;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            header h1 { font-size: 3em; }
-            .content, .team-info { padding: 30px 15px; }
-            .resource-grid { grid-template-columns: 1fr; }
-            nav ul { flex-direction: column; }
-            .section h2 { font-size: 2em; }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <header>
-            <h1>🏆 المرجع الأساسي لفريق MAQLUBA 🚀</h1>
-            <p>دليلكم الشامل للفوز في Game Jam - Godot 4 Edition</p>
-            <div class="header-badge">📅 13-15 نوفمبر 2025</div>
-            <div class="header-badge">محرك الألعاب: Godot 4</div>
-            
-            <div class="stats">
-                <div class="stat-card"><h3>150+</h3><p>أداة AI</p></div>
-                <div class="stat-card"><h3>1000+</h3><p>مورد مجاني</p></div>
-                <div class="stat-card"><h3>15MB</h3><p>محتوى نصي</p></div>
-                <div class="stat-card"><h3>48</h3><p>ساعة للفوز</p></div>
-            </div>
-        </header>
-
-        <div class="team-info">
-            <h2>👥 فريق مقلوبة - TEAM MAQLUBA</h2>
-            <div class="team-members">
-                <div class="member">
-                    <h3>👨‍💻 غيث - المبرمج والإدارة</h3>
-                    <p><strong>التركيز:</strong> Core Gameplay, Code Architecture, Git, Troubleshooting.</p>
-                </div>
-                <div class="member">
-                    <h3>🎨 الطيب - المصمم والمفكر</h3>
-                    <p><strong>التركيز:</strong> Game Design, Level Design, Brainstorming, UX/UI, Documentation.</p>
-                </div>
-                <div class="member">
-                    <h3>✏️ يوسف - الرسام والموثق</h3>
-                    <p><strong>التركيز:</strong> 2D/3D Assets, Pixel Art, Animation, Visual Style, AI Art Tools.</p>
-                </div>
-                <div class="member">
-                    <h3>🎵 عمر - مسؤول الصوتيات والتنظيم</h3>
-                    <p><strong>التركيز:</strong> Music, Sound Effects, Team Coordination, Presentation, Publishing.</p>
-                </div>
-            </div>
-        </div>
-
-        <nav>
-            <ul>
-                <li><a href="#setup">🛠️ الإعداد والتحضير</a></li>
-                <li><a href="#code">💻 مكتبة أكواد GDScript</a></li>
-                <li><a href="#ai">🤖 أدوات الذكاء الاصطناعي</a></li>
-                <li><a href="#art">🎨 رسومات وأصول</a></li>
-                <li><a href="#audio">🎧 صوتيات وموسيقى</a></li>
-                <li><a href="#troubleshoot">❌ حل المشاكل الشائعة</a></li>
-                <li><a href="#strategy">💡 استراتيجية الفوز</a></li>
-            </ul>
-        </nav>
-
-        <div class="content">
-            <!-- Section 1: Setup and Preparation -->
-            <section id="setup" class="section">
-                <h2>🛠️ الإعداد والتحضير (غيث وعمر)</h2>
-                
-                <div class="subsection">
-                    <h3>1. إعداد بيئة العمل (Godot & Git)</h3>
-                    <div class="quick-tips">
-                        <h3>خطوات الإعداد السريعة</h3>
-                        <ul>
-                            <li><strong>Godot 4:</strong> تأكدوا من تنزيل أحدث إصدار (4.2.x أو 4.3.x) وتثبيت قوالب التصدير (Export Templates).</li>
-                            <li><strong>Git:</strong> يجب على غيث إعداد مستودع Git على GitHub أو GitLab ومشاركته مع الفريق.</li>
-                            <li><strong>Discord:</strong> إعداد قناة نصية للـ Logs وقناة صوتية مفتوحة طوال الوقت.</li>
-                            <li><strong>Tiled/Aseprite:</strong> تأكدوا من أن يوسف لديه الأدوات جاهزة للتصدير السريع.</li>
-                        </ul>
-                    </div>
-                    <div class="resource-grid">
-                        <div class="resource-card">
-                            <h4>Godot Engine Download</h4>
-                            <div class="tags"><span class="tag role">الجميع</span><span class="tag type">محرك</span><span class="tag free">مجاني</span></div>
-                            <p>تنزيل أحدث إصدار من Godot 4.x. تأكد من تنزيل نسخة .NET إذا كنتم تخططون لاستخدام C#.</p>
-                            <a href="https://godotengine.org/download/" target="_blank">🔗 رابط التنزيل</a>
-                        </div>
-                        <div class="resource-card">
-                            <h4>Git & GitHub Desktop</h4>
-                            <div class="tags"><span class="tag role">غيث</span><span class="tag type">إدارة إصدارات</span><span class="tag free">مجاني</span></div>
-                            <p>استخدم Git لتسجيل التغييرات بشكل دوري. GitHub Desktop يسهل العملية كثيراً.</p>
-                            <a href="https://desktop.github.com/" target="_blank">🔗 تنزيل GitHub Desktop</a>
-                        </div>
-                        <div class="resource-card">
-                            <h4>Godot Export Templates</h4>
-                            <div class="tags"><span class="tag role">غيث</span><span class="tag type">إعداد</span><span class="tag free">مجاني</span></div>
-                            <p>ضرورية لتصدير اللعبة إلى Windows, Linux, Web (HTML5). قم بتثبيتها مسبقاً.</p>
-                            <a href="https://docs.godotengine.org/en/stable/tutorials/export/exporting_projects.html" target="_blank">🔗 دليل التثبيت</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Section 2: GDScript Code Library - MEGA -->
-            <section id="code" class="section">
-                <h2>💻 مكتبة أكواد GDScript الجاهزة (غيث)</h2>
-                
-                <div class="highlight">
-                    <h4>💡 نصيحة غيث: لا تعيد اختراع العجلة!</h4>
-                    <p>هذه الأكواد جاهزة للاستخدام في Godot 4. انسخها، الصقها، وافهم كيف تعمل. لا تضيع وقتاً في كتابة الأساسيات.</p>
-                </div>
-
-                <div class="subsection">
-                    <h3>2.1. نظام الحفظ والتحميل (Save/Load System)</h3>
-                    <p>استخدم هذا النظام لحفظ متغيرات اللعبة الأساسية (النقاط، الصحة، المستوى) في ملف JSON.</p>
-                    <div class="code-block">
-                        <pre><code>
-<span class="comment"># save_load_manager.gd (Autoload Singleton)</span>
-<span class="keyword">extends</span> Node
-
-<span class="keyword">const</span> SAVE_PATH = <span class="string">"user://savegame.json"</span>
-
-<span class="keyword">func</span> <span class="keyword">save_game</span>():
-    <span class="keyword">var</span> save_dict = {}
-    <span class="keyword">var</span> save_nodes = get_tree().get_nodes_in_group(<span class="string">"Persist"</span>) <span class="comment"># أضف العقد التي تريد حفظها إلى مجموعة "Persist"</span>
-    
-    <span class="keyword">for</span> node <span class="keyword">in</span> save_nodes:
-        <span class="keyword">if</span> node.has_method(<span class="string">"save"</span>):
-            save_dict[node.name] = node.call(<span class="string">"save"</span>) <span class="comment"># يجب أن تحتوي العقدة على دالة save() ترجع قاموس البيانات</span>
-
-    <span class="keyword">var</span> file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
-    <span class="keyword">var</span> json_string = JSON.stringify(save_dict, <span class="string">"\t"</span>) <span class="comment"># \t للتنسيق المقروء</span>
-    file.store_string(json_string)
-    file.close()
-    <span class="keyword">print</span>(<span class="string">"Game Saved!"</span>)
-
-<span class="keyword">func</span> <span class="keyword">load_game</span>():
-    <span class="keyword">if</span> <span class="keyword">not</span> FileAccess.file_exists(SAVE_PATH):
-        <span class="keyword">print</span>(<span class="string">"No save file found."</span>)
-        <span class="keyword">return</span> <span class="keyword">false</span>
-
-    <span class="keyword">var</span> file = FileAccess.open(SAVE_PATH, FileAccess.READ)
-    <span class="keyword">var</span> json_string = file.get_as_text()
-    file.close()
-
-    <span class="keyword">var</span> json = JSON.new()
-    <span class="keyword">var</span> parse_result = json.parse(json_string)
-    
-    <span class="keyword">if</span> parse_result != OK:
-        <span class="keyword">print</span>(<span class="string">"JSON Parse Error: "</span>, json.get_error_message())
-        <span class="keyword">return</span> <span class="keyword">false</span>
-
-    <span class="keyword">var</span> loaded_data = json.get_data()
-    
-    <span class="comment"># تطبيق البيانات المحملة على العقد الموجودة</span>
-    <span class="keyword">for</span> node_name <span class="keyword">in</span> loaded_data:
-        <span class="keyword">var</span> node = get_tree().get_root().find_child(node_name, <span class="keyword">true</span>, <span class="keyword">false</span>)
-        <span class="keyword">if</span> node <span class="keyword">and</span> node.has_method(<span class="string">"load_data"</span>):
-            node.call(<span class="string">"load_data"</span>, loaded_data[node_name]) <span class="comment"># يجب أن تحتوي العقدة على دالة load_data(data)</span>
-    
-    <span class="keyword">print</span>(<span class="string">"Game Loaded!"</span>)
-    <span class="keyword">return</span> <span class="keyword">true</span>
-
-<span class="comment"># مثال على دالة save() في عقدة اللاعب (Player.gd)</span>
-<span class="comment"># func save():</span>
-<span class="comment">#     return {</span>
-<span class="comment">#         "current_health": current_health,</span>
-<span class="comment">#         "position": position,</span>
-<span class="comment">#         "score": score</span>
-<span class="comment">#     }</span>
-
-<span class="comment"># مثال على دالة load_data() في عقدة اللاعب (Player.gd)</span>
-<span class="comment"># func load_data(data):</span>
-<span class="comment">#     current_health = data.current_health</span>
-<span class="comment">#     position = data.position</span>
-<span class="comment">#     score = data.score</span>
-                        </code></pre>
-                    </div>
-                </div>
-
-                <div class="subsection">
-                    <h3>2.2. نظام الكاميرا المتبعة والناعمة (Smooth Camera Follow)</h3>
-                    <p>استخدم <code>Camera2D</code> المدمجة وقم بتفعيل خاصية التنعيم (Smoothing) للحصول على كاميرا احترافية.</p>
-                    <div class="code-block">
-                        <pre><code>
-<span class="comment"># CameraFollow.gd (يُرفق بعقدة Camera2D)</span>
-<span class="keyword">extends</span> Camera2D
-
-<span class="comment"># @export_node_path var target_path: NodePath # Godot 3 style</span>
-<span class="keyword">@export</span> <span class="keyword">var</span> target: Node2D <span class="comment"># قم بسحب عقدة اللاعب هنا في المحرر</span>
-<span class="keyword">@export</span> <span class="keyword">var</span> smoothing_speed: <span class="keyword">float</span> = 5.0 <span class="comment"># سرعة التنعيم (5.0 قيمة جيدة)</span>
-
-<span class="keyword">func</span> _ready():
-    <span class="comment"># تفعيل التنعيم المدمج في Godot 4</span>
-    <span class="keyword">set_position_smoothing_enabled</span>(<span class="keyword">true</span>)
-    <span class="keyword">set_position_smoothing_speed</span>(smoothing_speed)
-    <span class="comment"># تأكد من أن الكاميرا هي الكاميرا الحالية</span>
-    <span class="keyword">make_current</span>()
-
-<span class="keyword">func</span> _process(delta):
-    <span class="comment"># لا حاجة لـ lerp يدوي إذا كان التنعيم مفعلاً</span>
-    <span class="keyword">if</span> target:
-        <span class="comment"># Godot 4 يتبع تلقائياً العقدة التي تتبعها الكاميرا (إذا كانت طفلاً لها)</span>
-        <span class="comment"># لكن إذا كانت الكاميرا منفصلة، نستخدم هذه الطريقة:</span>
-        <span class="keyword">global_position</span> = target.global_position
-        <span class="comment"># أو ببساطة اجعل الكاميرا طفلاً للاعب وقم بتفعيل smoothing_enabled</span>
-                        </code></pre>
-                    </div>
-                </div>
-
-                <div class="subsection">
-                    <h3>2.3. نظام آلة الحالات (Finite State Machine - FSM)</h3>
-                    <p>نمط تصميم أساسي لتنظيم سلوك اللاعب والأعداء (Idle, Run, Jump, Attack). (غيث)</p>
-                    <div class="code-block">
-                        <pre><code>
-<span class="comment"># State.gd (يُحفظ كـ ClassName: State)</span>
-<span class="keyword">class_name</span> State <span class="keyword">extends</span> Node
-
-<span class="keyword">var</span> character = <span class="keyword">null</span> <span class="comment"># العقدة التي تتحكم بها الحالة (اللاعب/العدو)</span>
-
-<span class="keyword">func</span> <span class="keyword">enter</span>():
-    <span class="comment"># يُنفذ مرة واحدة عند الدخول للحالة</span>
-    <span class="keyword">pass</span>
-
-<span class="keyword">func</span> <span class="keyword">exit</span>():
-    <span class="comment"># يُنفذ مرة واحدة عند الخروج من الحالة</span>
-    <span class="keyword">pass</span>
-
-<span class="keyword">func</span> <span class="keyword">update</span>(delta):
-    <span class="comment"># يُنفذ في كل إطار (مثل _process)</span>
-    <span class="keyword">pass</span>
-
-<span class="keyword">func</span> <span class="keyword">physics_update</span>(delta):
-    <span class="comment"># يُنفذ في كل إطار فيزيائي (مثل _physics_process)</span>
-    <span class="keyword">pass</span>
-
-<span class="keyword">func</span> <span class="keyword">handle_input</span>(event):
-    <span class="comment"># لمعالجة مدخلات المستخدم</span>
-    <span class="keyword">return</span> <span class="keyword">null</span> <span class="comment"># إرجاع الحالة الجديدة أو null</span>
-
-<span class="comment"># PlayerFSM.gd (يُرفق بعقدة اللاعب)</span>
-<span class="keyword">extends</span> CharacterBody2D
-
-<span class="keyword">var</span> current_state: State = <span class="keyword">null</span>
-<span class="keyword">var</span> states: Dictionary = {}
-
-<span class="keyword">func</span> _ready():
-    <span class="comment"># تهيئة الحالات</span>
-    states[<span class="string">"idle"</span>] = $IdleState <span class="comment"># يجب أن تكون IdleState عقدة طفل</span>
-    states[<span class="string">"run"</span>] = $RunState
-    <span class="comment"># ... أضف باقي الحالات كعقد أطفال</span>
-    
-    <span class="keyword">for</span> state <span class="keyword">in</span> states.values():
-        state.character = <span class="keyword">self</span> <span class="comment"># تمرير مرجع اللاعب للحالة</span>
-
-    <span class="keyword">change_state</span>(<span class="string">"idle"</span>)
-
-<span class="keyword">func</span> _physics_process(delta):
-    <span class="keyword">if</span> current_state:
-        current_state.physics_update(delta)
-
-<span class="keyword">func</span> _input(event):
-    <span class="keyword">if</span> current_state:
-        <span class="keyword">var</span> new_state = current_state.handle_input(event)
-        <span class="keyword">if</span> new_state:
-            <span class="keyword">change_state</span>(new_state)
-
-<span class="keyword">func</span> <span class="keyword">change_state</span>(new_state_name: <span class="keyword">String</span>):
-    <span class="keyword">if</span> current_state:
-        current_state.exit()
-    
-    <span class="keyword">if</span> states.has(new_state_name):
-        current_state = states[new_state_name]
-        current_state.enter()
-    <span class="keyword">else</span>:
-        <span class="keyword">print</span>(<span class="string">"Error: State "</span> + new_state_name + <span class="string">" not found."</span>)
-
-<span class="comment"># مثال على حالة (IdleState.gd)</span>
-<span class="comment"># extends State</span>
-<span class="comment"># func enter():</span>
-<span class="comment">#     character.velocity.x = 0</span>
-<span class="comment">#     character.play_animation("idle")</span>
-<span class="comment"># func handle_input(event):</span>
-<span class="comment">#     if Input.is_action_pressed("move_right") or Input.is_action_pressed("move_left"):</span>
-<span class="comment">#         return "run"</span>
-<span class="comment">#     return null</span>
-                        </code></pre>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Section 3: AI Tools - MEGA -->
-            <section id="ai" class="section">
-                <h2>🤖 أدوات الذكاء الاصطناعي (AI) - المرجع الضخم</h2>
-                
-                <div class="highlight">
-                    <h4>⚡ استراتيجية AI للفوز: السرعة والإنتاجية</h4>
-                    <p>استخدموا AI لتوليد 80% من الأصول الأولية (Placeholder Art, SFX, Draft Code) في أول 12 ساعة. هذا يسرّع مرحلة الـ Prototype بشكل جنوني.</p>
-                </div>
-
-                <div class="subsection">
-                    <h3>3.1. AI للبرمجة (غيث)</h3>
-                    <div class="resource-grid">
-                        <div class="resource-card">
-                            <h4>GitHub Copilot</h4>
-                            <div class="tags"><span class="tag role">غيث</span><span class="tag type">برمجة</span><span class="tag premium">مدفوع</span></div>
-                            <p>مساعد برمجة متقدم يدعم GDScript وC#. يقلل وقت كتابة الكود بنسبة 30%.</p>
-                            <a href="https://github.com/features/copilot" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-                        <div class="resource-card">
-                            <h4>Phind</h4>
-                            <div class="tags"><span class="tag role">غيث</span><span class="tag type">مساعد تقني</span><span class="tag free">مجاني</span></div>
-                            <p>محرك بحث AI مخصص للمطورين. يعطي إجابات مباشرة مع أمثلة كود لمشاكل Godot.</p>
-                            <a href="https://www.phind.com/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-                        <div class="resource-card">
-                            <h4>Codeium</h4>
-                            <div class="tags"><span class="tag role">غيث</span><span class="tag type">إكمال كود</span><span class="tag free">مجاني</span></div>
-                            <p>بديل مجاني لـ Copilot. يعمل كإكمال تلقائي للكود في محررات النصوص.</p>
-                            <a href="https://www.codeium.com/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="subsection">
-                    <h3>3.2. AI للرسومات والأصول (يوسف)</h3>
-                    <div class="resource-grid">
-                        <div class="resource-card">
-                            <h4>Stable Diffusion (Local/Web)</h4>
-                            <div class="tags"><span class="tag role">يوسف</span><span class="tag type">توليد صور</span><span class="tag free">مجاني</span></div>
-                            <p>لتوليد Concept Art، Textures، أو أصول خلفية. يمكن تشغيله محلياً.</p>
-                            <a href="https://stability.ai/stable-diffusion" target="_blank">🔗 الموقع الرسمي</a>
-                        </div>
-                        <div class="resource-card">
-                            <h4>Recraft AI</h4>
-                            <div class="tags"><span class="tag role">يوسف</span><span class="tag type">أصول 2D</span><span class="tag free">مجاني</span></div>
-                            <p>مولد أصول ألعاب مجاني. ينشئ sprites، textures، وشخصيات بأنماط متنوعة.</p>
-                            <a href="https://www.recraft.ai/generate/game-assets" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-                        <div class="resource-card">
-                            <h4>SpriteStack</h4>
-                            <div class="tags"><span class="tag role">يوسف</span><span class="tag type">Pixel Art 3D</span><span class="tag free">مجاني</span></div>
-                            <p>أداة لإنشاء نماذج 3D بأسلوب Pixel Art. يمكن تصديرها كـ Sprite Sheets.</p>
-                            <a href="https://spritestack.io/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="subsection">
-                    <h3>3.3. AI للصوتيات والموسيقى (عمر)</h3>
-                    <div class="resource-grid">
-                        <div class="resource-card">
-                            <h4>ElevenLabs Sound Effects</h4>
-                            <div class="tags"><span class="tag role">عمر</span><span class="tag type">مؤثرات صوتية</span><span class="tag free">مجاني/مدفوع</span></div>
-                            <p>توليد مؤثرات صوتية من النص. سريع جداً لإنشاء أصوات فريدة للعبة.</p>
-                            <a href="https://elevenlabs.io/sound-effects" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-                        <div class="resource-card">
-                            <h4>AIVA</h4>
-                            <div class="tags"><span class="tag role">عمر</span><span class="tag type">موسيقى</span><span class="tag free">مجاني/مدفوع</span></div>
-                            <p>توليد موسيقى خلفية أصلية بأنماط مختلفة. يمكن تخصيصها لتكون loop.</p>
-                            <a href="https://www.aiva.us/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-                        <div class="resource-card">
-                            <h4>Jukebox (OpenAI)</h4>
-                            <div class="tags"><span class="tag role">عمر</span><span class="tag type">موسيقى</span><span class="tag free">مجاني (كود)</span></div>
-                            <p>لتوليد موسيقى معقدة (يتطلب إعداد تقني). يمكن استخدامه لتوليد مقاطع فريدة.</p>
-                            <a href="https://openai.com/blog/jukebox" target="_blank">🔗 صفحة المشروع</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Section 4: Art & Assets - MEGA -->
-            <section id="art" class="section">
-                <h2>🎨 رسومات وأصول (يوسف)</h2>
-
-                <div class="subsection">
-                    <h3>4.1. أدوات الرسم والتصميم</h3>
-                    <div class="resource-grid">
-                        <div class="resource-card">
-                            <h4>Aseprite</h4>
-                            <div class="tags"><span class="tag type">Pixel Art</span><span class="tag premium">مدفوع/مجاني</span></div>
-                            <p>الأفضل للـ Pixel Art. يمكن تجميعه مجاناً من المصدر (GitHub).</p>
-                            <a href="https://www.aseprite.org/" target="_blank">🔗 الموقع الرسمي</a>
-                        </div>
-                        <div class="resource-card">
-                            <h4>Tiled Map Editor</h4>
-                            <div class="tags"><span class="tag type">Level Design</span><span class="tag free">مجاني</span></div>
-                            <p>محرر خرائط Tileset. ضروري لإنشاء المستويات بسرعة. يدعم Godot بشكل ممتاز.</p>
-                            <a href="https://www.mapeditor.org/" target="_blank">🔗 رابط التنزيل</a>
-                        </div>
-                        <div class="resource-card">
-                            <h4>Krita</h4>
-                            <div class="tags"><span class="tag type">رسم رقمي</span><span class="tag free">مجاني</span></div>
-                            <p>بديل مجاني لـ Photoshop. ممتاز للرسم الرقمي والـ Concept Art.</p>
-                            <a href="https://krita.org/en/download/" target="_blank">🔗 رابط التنزيل</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="subsection">
-                    <h3>4.2. مكتبات الأصول المجانية (1000+ مورد)</h3>
-                    <div class="resource-grid">
-                        <div class="resource-card">
-                            <h4>Kenney Assets</h4>
-                            <div class="tags"><span class="tag type">2D/3D/UI</span><span class="tag free">CC0</span></div>
-                            <p>أكثر من 40,000 أصل. ابدأوا البحث هنا دائماً. (لا يتطلب Attribution).</p>
-                            <a href="https://kenney.nl/assets" target="_blank">🔗 تصفح الأصول</a>
-                        </div>
-                        <div class="resource-card">
-                            <h4>OpenGameArt</h4>
-                            <div class="tags"><span class="tag type">متنوع</span><span class="tag free">متنوع</span></div>
-                            <p>مكتبة ضخمة. استخدموا فلاتر البحث للترخيص (CC0/Public Domain).</p>
-                            <a href="https://opengameart.org/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-                        <div class="resource-card">
-                            <h4>Quaternius 3D Assets</h4>
-                            <div class="tags"><span class="tag type">3D Low Poly</span><span class="tag free">CC0</span></div>
-                            <p>مجموعات 3D كاملة (طعام، أثاث، طبيعة). جودة ممتازة.</p>
-                            <a href="http://quaternius.com/assets.html" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-                        <div class="resource-card">
-                            <h4>Itch.io Free Assets</h4>
-                            <div class="tags"><span class="tag type">متنوع</span><span class="tag free">متنوع</span></div>
-                            <p>أصول مجانية من مجتمع المطورين. ابحثوا عن الأصول المصنفة بـ "Game Jam Ready".</p>
-                            <a href="https://itch.io/game-assets/free" target="_blank">🔗 تصفح Itch.io</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Section 5: Audio & Music - MEGA -->
-            <section id="audio" class="section">
-                <h2>🎧 صوتيات وموسيقى (عمر)</h2>
-
-                <div class="subsection">
-                    <h3>5.1. أدوات الإنشاء والتحرير</h3>
-                    <div class="resource-grid">
-                        <div class="resource-card">
-                            <h4>LMMS</h4>
-                            <div class="tags"><span class="tag type">DAW</span><span class="tag free">مجاني</span></div>
-                            <p>Digital Audio Workstation مجاني وقوي. لإنشاء موسيقى خلفية معقدة.</p>
-                            <a href="https://lmms.io/download/" target="_blank">🔗 رابط التنزيل</a>
-                        </div>
-                        <div class="resource-card">
-                            <h4>BFXR</h4>
-                            <div class="tags"><span class="tag type">SFX Generator</span><span class="tag free">مجاني</span></div>
-                            <p>مولد مؤثرات صوتية كلاسيكي (8-bit). أسرع طريقة لإنشاء أصوات.</p>
-                            <a href="https://www.bfxr.net/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-                        <div class="resource-card">
-                            <h4>Audacity</h4>
-                            <div class="tags"><span class="tag type">تحرير صوت</span><span class="tag free">مجاني</span></div>
-                            <p>أساسي لتحرير، قص، وتطبيق تأثيرات على المؤثرات الصوتية.</p>
-                            <a href="https://www.audacityteam.org/download/" target="_blank">🔗 رابط التنزيل</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="subsection">
-                    <h3>5.2. مكتبات الصوتيات المجانية</h3>
-                    <div class="resource-grid">
-                        <div class="resource-card">
-                            <h4>Freesound</h4>
-                            <div class="tags"><span class="tag type">SFX</span><span class="tag free">متنوع</span></div>
-                            <p>مكتبة ضخمة من المؤثرات الصوتية. استخدموا فلاتر الترخيص (CC0).</p>
-                            <a href="https://freesound.org/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-                        <div class="resource-card">
-                            <h4>Pixabay Sounds</h4>
-                            <div class="tags"><span class="tag type">SFX/Music</span><span class="tag free">مجاني</span></div>
-                            <p>مؤثرات صوتية وموسيقى مجانية تماماً (لا تتطلب attribution).</p>
-                            <a href="https://pixabay.com/sound-effects/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-                        <div class="resource-card">
-                            <h4>Incompetech</h4>
-                            <div class="tags"><span class="tag type">Music</span><span class="tag free">CC-BY</span></div>
-                            <p>موسيقى خلفية لـ Kevin MacLeod. جودة عالية ومناسبة للألعاب.</p>
-                            <a href="https://incompetech.com/music/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Section 6: Troubleshooting - MEGA -->
-            <section id="troubleshoot" class="section">
-                <h2>❌ حل المشاكل الشائعة (غيث)</h2>
-
-                <div class="subsection">
-                    <h3>6.1. مشاكل الكود الشائعة</h3>
-                    <div class="quick-tips">
-                        <h3>مشكلة: الكاميرا لا تتبع اللاعب بسلاسة</h3>
-                        <p><strong>الحل:</strong> تأكد من تفعيل <code>position_smoothing_enabled</code> في عقدة <code>Camera2D</code>. إذا كنت تستخدم كود مخصص، تأكد من استخدام <code>lerp()</code> في دالة <code>_process(delta)</code> أو <code>_physics_process(delta)</code>.</p>
-                        <p><strong>الكود:</strong> <code>position = lerp(position, target_position, 1.0 - pow(0.01, delta))</code></p>
-                    </div>
-                    <div class="quick-tips">
-                        <h3>مشكلة: الأصول (Assets) لا تظهر أو تظهر بشكل خاطئ</h3>
-                        <p><strong>الحل:</strong> تأكد من أن الأصول (خاصة الـ Pixel Art) تم استيرادها مع تفعيل <code>Filter</code> على <code>Nearest</code> في إعدادات الاستيراد (Import Settings) لمنع التنعيم (Blurring).</p>
-                    </div>
-                    <div class="quick-tips">
-                        <h3>مشكلة: خطأ في تحميل المشهد (Scene)</h3>
-                        <p><strong>الحل:</strong> استخدم <code>preload()</code> للمشاهد التي يتم تحميلها بشكل متكرر، واستخدم <code>load()</code> للمشاهد التي يتم تحميلها مرة واحدة. تأكد من أن المسار صحيح (يبدأ بـ <code>res://</code>).</p>
-                    </div>
-                </div>
-
-                <div class="subsection">
-                    <h3>6.2. مشاكل التصدير (Export)</h3>
-                    <div class="quick-tips">
-                        <h3>مشكلة: التصدير إلى الويب (HTML5) لا يعمل</h3>
-                        <p><strong>الحل:</strong> تأكد من تثبيت قوالب التصدير (Export Templates) من قائمة <code>Project -> Install Android Build Template / Manage Export Templates</code>. وتأكد من أن ملفات التصدير (HTML, JS, WASM) موجودة في نفس المجلد.</p>
-                    </div>
-                    <div class="quick-tips">
-                        <h3>مشكلة: حجم ملف التصدير كبير جداً</h3>
-                        <p><strong>الحل:</strong> في إعدادات التصدير، قم بتفعيل <code>Strip Debugging Symbols</code> و <code>Exclude Files</code> للملفات غير المستخدمة. استخدم ضغط <code>.zip</code> أو <code>.pck</code> لتقليل الحجم.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Section 7: Strategy & Tips - MEGA -->
-            <section id="strategy" class="section">
-                <h2>💡 استراتيجية الفوز (الطيب وعمر)</h2>
-
-                <div class="subsection">
-                    <h3>7.1. تصميم اللعبة (الطيب)</h3>
-                    <div class="quick-tips">
-                        <h3>قاعدة الـ "KISS" (Keep It Simple, Stupid)</h3>
-                        <ul>
-                            <li><strong>ركز على Core Mechanic واحد:</strong> يجب أن تكون فكرة اللعبة الأساسية بسيطة وممتعة. لا تحاول إضافة 10 ميزات.</li>
-                            <li><strong>الـ Vertical Slice:</strong> في أول 24 ساعة، يجب أن يكون لديكم جزء صغير من اللعبة (لاعب، عدو، هدف) ملمع بالكامل.</li>
-                            <li><strong>الـ Theme أولاً:</strong> بمجرد الإعلان عن الموضوع، يجب أن يكون كل قرار تصميمي يخدم هذا الموضوع.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="subsection">
-                    <h3>7.2. العرض والتقديم (عمر)</h3>
-                    <div class="quick-tips">
-                        <h3>كيفية إبهار الحكام</h3>
-                        <ul>
-                            <li><strong>الصفحة الرئيسية (Itch.io):</strong> يجب أن تكون جذابة. استخدموا أفضل 3 لقطات شاشة (Screenshots) وصورة متحركة (GIF) للـ Gameplay.</li>
-                            <li><strong>الوصف:</strong> يجب أن يكون قصيراً، يوضح الـ Theme، والـ Core Mechanic، وكيفية اللعب.</li>
-                            <li><strong>الـ Credits:</strong> لا تنسوا شكر بعضكم البعض والإشارة إلى الأصول المجانية المستخدمة.</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <footer>
-            <h3>🚀 انطلقوا نحو الفوز يا فريق MAQLUBA! 🏆</h3>
-            <p>هذا المرجع هو سلاحكم السري. استخدموه بحكمة.</p>
-            <p style="margin-top: 10px; font-size: 0.9em; opacity: 0.8;">
-                تم إنشاء هذا المرجع الأساسي خصيصاً لفريق MAQLUBA - جميع الروابط محدثة حتى نوفمبر 2025
-            </p>
-        </footer>
-    </div>
-</body>
-</html>
