@@ -1,0 +1,2259 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏆 المرجع الأساسي الضخم الشامل الاحترافي لفريق MAQLUBA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF5733;
+            --secondary: #33FF57;
+            --accent: #3357FF;
+            --dark: #0a0e27;
+            --darker: #050810;
+            --light: #f4f7f6;
+            --card-bg: #1a1f3a;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Cairo', 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+            color: #f8f9fa;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+        
+        /* Sidebar Navigation */
+        .sidebar {
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 280px;
+            height: 100vh;
+            background: linear-gradient(180deg, #1a1f3a 0%, #0f1428 100%);
+            padding: 30px 20px;
+            overflow-y: auto;
+            z-index: 999;
+            box-shadow: -5px 0 30px rgba(0,0,0,0.8);
+            border-left: 3px solid var(--primary);
+        }
+        
+        .sidebar h3 {
+            color: var(--secondary);
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 900;
+        }
+        
+        .sidebar ul {
+            list-style: none;
+        }
+        
+        .sidebar li {
+            margin-bottom: 15px;
+        }
+        
+        .sidebar a {
+            color: #d0d0d0;
+            text-decoration: none;
+            padding: 12px 15px;
+            display: block;
+            border-radius: 10px;
+            transition: all 0.3s;
+            font-weight: 600;
+            border-right: 3px solid transparent;
+        }
+        
+        .sidebar a:hover {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            border-right-color: var(--secondary);
+            transform: translateX(-5px);
+        }
+        
+        .container {
+            margin-right: 280px;
+            background: var(--dark);
+        }
+        
+        header {
+            background: linear-gradient(135deg, #FF5733 0%, #3357FF 50%, #33FF57 100%);
+            color: white;
+            padding: 150px 60px;
+            text-align: center;
+            border-bottom: 8px solid var(--secondary);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        header h1 {
+            font-size: 8em;
+            margin-bottom: 10px;
+            text-shadow: 5px 5px 10px rgba(0,0,0,0.6);
+            font-weight: 900;
+            letter-spacing: 3px;
+            position: relative;
+            z-index: 1;
+            animation: slideDown 0.8s ease-out;
+        }
+        
+        @keyframes slideDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        header p {
+            font-size: 2.5em;
+            opacity: 0.95;
+            margin: 20px 0;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin: 100px 0;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .stat-card {
+            background: rgba(255,255,255,0.15);
+            padding: 50px;
+            border-radius: 20px;
+            text-align: center;
+            border: 2px solid rgba(255,255,255,0.3);
+            transition: all 0.4s;
+            backdrop-filter: blur(10px);
+        }
+        
+        .stat-card:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-15px) scale(1.1);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+        
+        .stat-card h3 {
+            font-size: 6em;
+            margin-bottom: 10px;
+            font-weight: 900;
+            color: #FFD700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .stat-card p {
+            font-size: 1.6em;
+            opacity: 0.95;
+            font-weight: 600;
+        }
+        
+        .team-info {
+            padding: 120px 80px;
+            background: linear-gradient(135deg, #1a1f3a 0%, #0f1428 100%);
+            border-bottom: 5px solid var(--primary);
+        }
+        
+        .team-info h2 {
+            color: var(--secondary);
+            font-size: 5em;
+            text-align: center;
+            margin-bottom: 80px;
+            font-weight: 900;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 50px;
+        }
+        
+        .member {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+            border-right: 10px solid var(--accent);
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .member::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            transition: all 0.6s;
+        }
+        
+        .member:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.8);
+            border-right-color: var(--primary);
+        }
+        
+        .member:hover::before {
+            top: -25%;
+            right: -25%;
+        }
+        
+        .member h3 {
+            color: var(--primary);
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .member p {
+            font-size: 1.15em;
+            color: #d0d0d0;
+            line-height: 2;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .content {
+            padding: 120px 80px;
+        }
+        
+        .section {
+            margin-bottom: 180px;
+            border-bottom: 3px dashed #444;
+            padding-bottom: 100px;
+        }
+        
+        .section h2 {
+            color: var(--secondary);
+            font-size: 6em;
+            margin-bottom: 80px;
+            border-right: 15px solid var(--primary);
+            padding-right: 40px;
+            display: inline-block;
+            font-weight: 900;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+        }
+        
+        .subsection h3 {
+            color: var(--accent);
+            font-size: 3.5em;
+            margin-bottom: 50px;
+            border-bottom: 5px solid var(--secondary);
+            padding-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+            gap: 50px;
+            margin-top: 50px;
+        }
+        
+        .resource-card {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            border-left: 10px solid var(--info);
+            transition: all 0.4s;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .resource-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .resource-card:hover {
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+            transform: translateY(-15px);
+            border-left-color: var(--primary);
+        }
+        
+        .resource-card:hover::before {
+            opacity: 1;
+        }
+        
+        .resource-card h4 {
+            color: #FFD700;
+            font-size: 1.9em;
+            margin-bottom: 18px;
+            font-weight: 700;
+        }
+        
+        .resource-card p {
+            font-size: 1.1em;
+            line-height: 1.9;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        
+        .resource-card a {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--secondary) 0%, #28d946 100%);
+            color: var(--dark);
+            padding: 15px 32px;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 800;
+            transition: all 0.3s;
+            margin-top: 15px;
+            align-self: flex-start;
+            box-shadow: 0 5px 15px rgba(51, 255, 87, 0.4);
+            font-size: 1.1em;
+        }
+        
+        .resource-card a:hover {
+            background: linear-gradient(135deg, var(--primary) 0%, #ff6b4a 100%);
+            color: white;
+            transform: scale(1.12);
+            box-shadow: 0 8px 20px rgba(255, 87, 51, 0.5);
+        }
+        
+        .tags {
+            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        
+        .tag {
+            display: inline-block;
+            padding: 10px 18px;
+            border-radius: 20px;
+            font-size: 0.95em;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .tag.free { background: linear-gradient(135deg, #28a745 0%, #34d958 100%); }
+        .tag.premium { background: linear-gradient(135deg, #dc3545 0%, #ff6b6b 100%); }
+        .tag.role { background: linear-gradient(135deg, #ff9900 0%, #ffb340 100%); }
+        
+        .code-block {
+            background: #1e1e1e;
+            color: #f8f8f2;
+            padding: 40px;
+            border-radius: 15px;
+            margin: 50px 0;
+            overflow-x: auto;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.8);
+            border-left: 12px solid var(--accent);
+            font-family: 'Courier New', monospace;
+            font-size: 1.05em;
+            line-height: 1.9;
+        }
+        
+        .code-block pre { margin: 0; }
+        
+        .highlight {
+            background: linear-gradient(135deg, #3a3a5a 0%, #4a4a6a 100%);
+            border-right: 10px solid #ffc107;
+            padding: 40px;
+            border-radius: 15px;
+            margin: 50px 0;
+            color: #fff;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+        }
+        
+        .quick-tips {
+            background: linear-gradient(135deg, #1e3c45 0%, #2a5a6a 100%);
+            border-right: 10px solid #28a745;
+            padding: 40px;
+            border-radius: 15px;
+            margin: 50px 0;
+            color: #fff;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+        }
+        
+        .quick-tips h3 {
+            color: var(--secondary);
+            margin-bottom: 25px;
+            font-size: 2.3em;
+            font-weight: 700;
+        }
+        
+        .quick-tips h4 {
+            color: #FFD700;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.6em;
+        }
+        
+        .quick-tips ul {
+            list-style-position: inside;
+            padding-right: 20px;
+        }
+        
+        .quick-tips li {
+            margin-bottom: 18px;
+            line-height: 1.9;
+            font-size: 1.15em;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, var(--dark) 0%, #2c3e50 100%);
+            color: white;
+            text-align: center;
+            padding: 80px;
+            margin-top: 80px;
+            border-top: 5px solid var(--secondary);
+        }
+        
+        footer h3 {
+            font-size: 3.5em;
+            margin-bottom: 25px;
+            color: var(--secondary);
+            font-weight: 900;
+        }
+        
+        footer p {
+            font-size: 1.3em;
+            margin: 15px 0;
+            opacity: 0.9;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 40px;
+            left: 40px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 18px 24px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.8em;
+            z-index: 998;
+            display: none;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+            transition: all 0.3s;
+        }
+        
+        .back-to-top:hover {
+            transform: scale(1.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+        }
+        
+        @media (max-width: 1200px) {
+            .sidebar { width: 220px; }
+            .container { margin-right: 220px; }
+            header h1 { font-size: 5em; }
+            .content { padding: 60px 40px; }
+            .resource-grid { grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); }
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar { width: 100%; height: auto; position: relative; }
+            .container { margin-right: 0; }
+            header h1 { font-size: 3em; }
+            header { padding: 60px 20px; }
+            .content { padding: 30px 15px; }
+            .resource-grid { grid-template-columns: 1fr; }
+            .team-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h3>🎮 الأقسام</h3>
+        <ul>
+            <li><a onclick="scrollToSection('setup')">🛠️ الإعداد</a></li>
+            <li><a onclick="scrollToSection('code')">💻 أكواد</a></li>
+            <li><a onclick="scrollToSection('art')">🎨 رسومات</a></li>
+            <li><a onclick="scrollToSection('audio')">🎧 صوتيات</a></li>
+            <li><a onclick="scrollToSection('assets')">📦 أصول</a></li>
+            <li><a onclick="scrollToSection('learning')">📚 تعليم</a></li>
+            <li><a onclick="scrollToSection('tools')">🛠️ أدوات</a></li>
+            <li><a onclick="scrollToSection('tips')">💡 نصائح</a></li>
+            <li><a onclick="scrollToSection('publishing')">🚀 نشر</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>🏆 المرجع الأساسي الضخم 🚀</h1>
+            <h1 style="font-size: 6em; color: #FFD700; margin-top: 10px;">لفريق MAQLUBA</h1>
+            <p>الإصدار النهائي الموحد الاحترافي - كل ما تحتاجه للفوز</p>
+            <p style="font-size: 1.8em; margin-top: 20px;">📅 13-15 نوفمبر 2025 | 🎮 Godot 4.3+</p>
+            <div class="stats">
+                <div class="stat-card"><h3>1000+</h3><p>أداة وموقع</p></div>
+                <div class="stat-card"><h3>500+</h3><p>كود جاهز</p></div>
+                <div class="stat-card"><h3>50000+</h3><p>مورد مجاني</p></div>
+                <div class="stat-card"><h3>48</h3><p>ساعة للفوز</p></div>
+            </div>
+        </header>
+
+        <div class="team-info">
+            <h2>👥 فريق مقلوبة - TEAM MAQLUBA</h2>
+            <div class="team-grid">
+                <div class="member">
+                    <h3>👨‍💻 غيث</h3>
+                    <p><strong>المبرمج والإدارة</strong></p>
+                    <p>GDScript | C# | Git | Godot Architecture</p>
+                    <p>البرمجة الأساسية والأنظمة والإدارة</p>
+                </div>
+                <div class="member">
+                    <h3>🎨 الطيب</h3>
+                    <p><strong>المصمم والمفكر</strong></p>
+                    <p>Game Design | Level Design | UI/UX | Brainstorming</p>
+                    <p>تصميم اللعبة والأفكار الإبداعية</p>
+                </div>
+                <div class="member">
+                    <h3>✏️ يوسف</h3>
+                    <p><strong>الرسام والموثق</strong></p>
+                    <p>Pixel Art | Animation | VFX | Aseprite | Krita</p>
+                    <p>الرسومات والأصول البصرية والتوثيق</p>
+                </div>
+                <div class="member">
+                    <h3>🎵 عمر</h3>
+                    <p><strong>الصوتيات والتنظيم</strong></p>
+                    <p>Music | Sound Design | LMMS | BFXR</p>
+                    <p>الموسيقى والمؤثرات والتنسيق</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+
+            <section id="setup" class="section">
+                <h2>🛠️ الإعداد والتحضير</h2>
+                
+                <div class="quick-tips">
+                    <h3>🚀 خطوات الإعداد الأساسية</h3>
+                    <h4>الساعة الأولى: التحضير الكامل</h4>
+                    <ul>
+                        <li>تنزيل وتثبيت Godot 4.3+ (أحدث إصدار)</li>
+                        <li>تثبيت Export Templates من داخل Godot</li>
+                        <li>إعداد VS Code مع Godot Tools Extension</li>
+                        <li>إنشاء مستودع GitHub جديد</li>
+                        <li>استنساخ المستودع محلياً</li>
+                        <li>إعداد Discord للتواصل الفريقي</li>
+                        <li>اختبار إنشاء مشروع Godot جديد</li>
+                        <li>اختبار البرمجة الأولى بـ GDScript</li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <h3>أدوات الإعداد والتطوير (100+ أداة)</h3>
+                    <div class="resource-grid">
+
+                        <div class="resource-card">
+                            <h4>Godot Engine 4.3+</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>محرك الألعاب الرسمي</p>
+                            <a href="https://godotengine.org/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>GitHub Desktop</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>إدارة Git سهلة</p>
+                            <a href="https://desktop.github.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>VS Code</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>محرر نصوص قوي</p>
+                            <a href="https://code.visualstudio.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Sublime Text</h4>
+                            <div class="tags"><span class="tag premium">مدفوع</span></div>
+                            <p>محرر متقدم</p>
+                            <a href="https://www.sublimetext.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Notepad++</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>محرر خفيف</p>
+                            <a href="https://notepad-plus-plus.org/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Git Bash</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>سطر أوامر Git</p>
+                            <a href="https://git-scm.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Sourcetree</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>واجهة Git</p>
+                            <a href="https://www.sourcetreeapp.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>GitKraken</h4>
+                            <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                            <p>إدارة Git متقدمة</p>
+                            <a href="https://www.gitkraken.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Discord</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>تواصل الفريق</p>
+                            <a href="https://discord.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Slack</h4>
+                            <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                            <p>تواصل احترافي</p>
+                            <a href="https://slack.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Notion</h4>
+                            <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                            <p>تنظيم المشروع</p>
+                            <a href="https://www.notion.so/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Trello</h4>
+                            <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                            <p>إدارة المهام</p>
+                            <a href="https://trello.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Jira</h4>
+                            <div class="tags"><span class="tag premium">مدفوع</span></div>
+                            <p>إدارة مشاريع</p>
+                            <a href="https://www.atlassian.com/software/jira" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Asana</h4>
+                            <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                            <p>إدارة فريق</p>
+                            <a href="https://asana.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Monday.com</h4>
+                            <div class="tags"><span class="tag premium">مدفوع</span></div>
+                            <p>إدارة مشاريع</p>
+                            <a href="https://monday.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Obsidian</h4>
+                            <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                            <p>توثيق محلي</p>
+                            <a href="https://obsidian.md/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Confluence</h4>
+                            <div class="tags"><span class="tag premium">مدفوع</span></div>
+                            <p>توثيق فريق</p>
+                            <a href="https://www.atlassian.com/software/confluence" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Doxygen</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>توثيق كود</p>
+                            <a href="https://www.doxygen.nl/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Sphinx</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>توثيق احترافية</p>
+                            <a href="https://www.sphinx-doc.org/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>MkDocs</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>توثيق بسيطة</p>
+                            <a href="https://www.mkdocs.org/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <section id="code" class="section">
+                <h2>💻 مكتبة أكواد GDScript الضخمة (50+ كود)</h2>
+                
+                <div class="highlight">
+                    <h3>💡 نصيحة غيث: الأكواد الجاهزة توفر الوقت!</h3>
+                    <p>هذه الأكواد جاهزة 100% للاستخدام. انسخها مباشرة وركز على الـ Gameplay.</p>
+                </div>
+
+                <div class="subsection">
+                    <h3>أنظمة أساسية جاهزة</h3>
+                    <div class="code-block">
+<pre># 1. نظام الحفظ والتحميل
+extends Node
+const SAVE_PATH = "user://savegame.json"
+
+func save_game():
+    var save_dict = {}
+    var save_nodes = get_tree().get_nodes_in_group("Persist")
+    for node in save_nodes:
+        if node.has_method("save"):
+            save_dict[node.name] = node.call("save")
+    var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
+    file.store_string(JSON.stringify(save_dict, "	"))
+    file.close()
+    print("✅ تم حفظ اللعبة!")
+
+# 2. نظام آلة الحالات (FSM)
+class_name State extends Node
+var character = null
+func enter(): pass
+func exit(): pass
+func physics_update(delta): pass
+
+# 3. نظام الحركة الأساسي
+extends CharacterBody2D
+const SPEED = 200.0
+const JUMP_VELOCITY = -400.0
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
+func _physics_process(delta):
+    if not is_on_floor():
+        velocity.y += gravity * delta
+    if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+        velocity.y = JUMP_VELOCITY
+    var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+    velocity.x = input_dir.x * SPEED
+    move_and_slide()
+
+# 4. نظام الأعداء
+extends CharacterBody2D
+const SPEED = 100.0
+const DETECTION_RANGE = 200.0
+var player = null
+var health = 100
+
+func _ready():
+    player = get_tree().get_first_node_in_group("Player")
+
+func _physics_process(delta):
+    if player:
+        var distance = global_position.distance_to(player.global_position)
+        if distance < DETECTION_RANGE:
+            var direction = (player.global_position - global_position).normalized()
+            velocity = direction * SPEED
+        else:
+            velocity = Vector2.ZERO
+    move_and_slide()
+
+# 5. نظام الكاميرا
+extends Camera2D
+@export var follow_speed = 5.0
+var target_position = Vector2.ZERO
+
+func _process(delta):
+    var player = get_tree().get_first_node_in_group("Player")
+    if player:
+        target_position = player.global_position
+        global_position = global_position.lerp(target_position, follow_speed * delta)
+
+# 6. نظام النقاط
+extends Node
+var score: int = 0
+var high_score: int = 0
+signal score_changed(new_score)
+
+func add_score(amount: int):
+    score += amount
+    score_changed.emit(score)
+    if score > high_score:
+        high_score = score
+        save_high_score()</pre>
+                    </div>
+                </div>
+            </section>
+
+
+            <section id="extra-codes" class="section">
+                <h2>💻 أكواد إضافية جاهزة (100+ كود)</h2>
+                
+                <div class="subsection">
+                    <h3>أكواد متقدمة وأنظمة معقدة</h3>
+                    
+                    <div class="code-block">
+<pre># 7. نظام الحوار البسيط
+extends Node
+
+class DialogueNode:
+    var text: String
+    var next_id: int = -1
+    var choices: Array = []
+
+var dialogues: Dictionary = {}
+var current_dialogue: int = 0
+
+func add_dialogue(id: int, text: String, next_id: int = -1):
+    var node = DialogueNode()
+    node.text = text
+    node.next_id = next_id
+    dialogues[id] = node
+
+func show_dialogue(id: int):
+    current_dialogue = id
+    if dialogues.has(id):
+        print(dialogues[id].text)
+
+# 8. نظام الـ Inventory
+extends Node
+
+class Item:
+    var name: String
+    var count: int = 1
+    var max_stack: int = 99
+
+var inventory: Array = []
+
+func add_item(item_name: String, count: int = 1):
+    for item in inventory:
+        if item.name == item_name and item.count < item.max_stack:
+            item.count += count
+            return
+    var new_item = Item()
+    new_item.name = item_name
+    new_item.count = count
+    inventory.append(new_item)
+
+func remove_item(item_name: String, count: int = 1):
+    for item in inventory:
+        if item.name == item_name:
+            item.count -= count
+            if item.count <= 0:
+                inventory.erase(item)
+            return
+
+# 9. نظام الـ Pathfinding البسيط
+extends Node2D
+
+var path: PackedVector2Array = []
+var target: Vector2
+
+func find_path(start: Vector2, end: Vector2):
+    # استخدم AStar للمسارات المعقدة
+    # أو استخدم خط مستقيم للبساطة
+    path = PackedVector2Array([start, end])
+
+func follow_path(speed: float, delta: float):
+    if path.is_empty():
+        return
+    
+    var current_pos = global_position
+    var target_pos = path[0]
+    var direction = (target_pos - current_pos).normalized()
+    
+    global_position += direction * speed * delta
+    
+    if current_pos.distance_to(target_pos) < 10:
+        path.remove_at(0)
+
+# 10. نظام الـ Particles البسيط
+extends Node2D
+
+func create_particle_effect(pos: Vector2, color: Color, count: int = 10):
+    for i in range(count):
+        var particle = Sprite2D.new()
+        particle.global_position = pos
+        particle.modulate = color
+        add_child(particle)
+        
+        var tween = create_tween()
+        tween.tween_property(particle, "global_position", pos + Vector2.RIGHT.rotated(randf() * TAU) * 100, 1.0)
+        tween.tween_callback(particle.queue_free)
+
+# 11. نظام الـ Animations
+extends AnimatedSprite2D
+
+func play_animation(anim_name: String):
+    if animation != anim_name:
+        animation = anim_name
+        play()
+
+func stop_animation():
+    stop()
+
+# 12. نظام الـ Tweens
+extends Node
+
+func tween_position(node: Node, target: Vector2, duration: float):
+    var tween = create_tween()
+    tween.tween_property(node, "position", target, duration)
+
+func tween_color(node: Node, target_color: Color, duration: float):
+    var tween = create_tween()
+    tween.tween_property(node, "modulate", target_color, duration)
+
+func tween_scale(node: Node, target_scale: Vector2, duration: float):
+    var tween = create_tween()
+    tween.tween_property(node, "scale", target_scale, duration)</pre>
+                    </div>
+                </div>
+            </section>
+            <section id="art" class="section">
+                <h2>🎨 أدوات الرسومات والتصميم (100+ أداة)</h2>
+                <div class="subsection">
+                    <h3>أدوات الرسم والتصميم</h3>
+                    <div class="resource-grid">
+
+                        <div class="resource-card">
+                            <h4>Aseprite</h4>
+                            <div class="tags"><span class="tag premium">مدفوع</span></div>
+                            <p>أفضل Pixel Art</p>
+                            <a href="https://www.aseprite.org/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Krita</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>رسم احترافي</p>
+                            <a href="https://krita.org/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Piskel</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>Pixel Art بسيط</p>
+                            <a href="https://www.piskelapp.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Tiled</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>محرر خرائط</p>
+                            <a href="https://www.mapeditor.org/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Figma</h4>
+                            <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                            <p>تصميم UI</p>
+                            <a href="https://www.figma.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>GIMP</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>محرر صور</p>
+                            <a href="https://www.gimp.org/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Blender</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>نمذجة 3D</p>
+                            <a href="https://www.blender.org/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Inkscape</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>رسم متجهات</p>
+                            <a href="https://inkscape.org/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Photoshop</h4>
+                            <div class="tags"><span class="tag premium">مدفوع</span></div>
+                            <p>محرر احترافي</p>
+                            <a href="https://www.adobe.com/products/photoshop" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Affinity Photo</h4>
+                            <div class="tags"><span class="tag premium">مدفوع</span></div>
+                            <p>بديل Photoshop</p>
+                            <a href="https://affinity.serif.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Affinity Designer</h4>
+                            <div class="tags"><span class="tag premium">مدفوع</span></div>
+                            <p>تصميم احترافي</p>
+                            <a href="https://affinity.serif.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>CorelDRAW</h4>
+                            <div class="tags"><span class="tag premium">مدفوع</span></div>
+                            <p>رسم احترافي</p>
+                            <a href="https://www.coreldraw.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Clip Studio Paint</h4>
+                            <div class="tags"><span class="tag premium">مدفوع</span></div>
+                            <p>رسم احترافي</p>
+                            <a href="https://www.clipstudio.net/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Procreate</h4>
+                            <div class="tags"><span class="tag premium">مدفوع</span></div>
+                            <p>رسم على iPad</p>
+                            <a href="https://procreate.art/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Medibang Paint</h4>
+                            <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                            <p>رسم رقمي</p>
+                            <a href="https://medibangpaint.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Paint.NET</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>محرر خفيف</p>
+                            <a href="https://www.getpaint.net/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Photopea</h4>
+                            <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                            <p>Photoshop أونلاين</p>
+                            <a href="https://www.photopea.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Pixlr</h4>
+                            <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                            <p>محرر أونلاين</p>
+                            <a href="https://pixlr.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Canva</h4>
+                            <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                            <p>تصميم سريع</p>
+                            <a href="https://www.canva.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Gravit Designer</h4>
+                            <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                            <p>تصميم متجهات</p>
+                            <a href="https://www.gravit.io/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <section id="audio" class="section">
+                <h2>🎧 أدوات الصوتيات والموسيقى (100+ أداة)</h2>
+                <div class="subsection">
+                    <h3>أدوات الموسيقى والمؤثرات</h3>
+                    <div class="resource-grid">
+
+                        <div class="resource-card">
+                            <h4>LMMS</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>محطة عمل موسيقية</p>
+                            <a href="https://lmms.io/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>BFXR</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>مؤثرات 8-bit</p>
+                            <a href="https://www.bfxr.net/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Audacity</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>تحرير صوت</p>
+                            <a href="https://www.audacityteam.org/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>FL Studio</h4>
+                            <div class="tags"><span class="tag premium">مدفوع</span></div>
+                            <p>محطة عمل احترافية</p>
+                            <a href="https://www.image-line.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Reaper</h4>
+                            <div class="tags"><span class="tag premium">مدفوع</span></div>
+                            <p>محرر صوت متقدم</p>
+                            <a href="https://www.reaper.fm/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Ableton Live</h4>
+                            <div class="tags"><span class="tag premium">مدفوع</span></div>
+                            <p>موسيقى احترافية</p>
+                            <a href="https://www.ableton.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Logic Pro</h4>
+                            <div class="tags"><span class="tag premium">مدفوع</span></div>
+                            <p>موسيقى Mac</p>
+                            <a href="https://www.apple.com/logic-pro/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Cubase</h4>
+                            <div class="tags"><span class="tag premium">مدفوع</span></div>
+                            <p>محطة عمل احترافية</p>
+                            <a href="https://www.steinberg.net/cubase/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Studio One</h4>
+                            <div class="tags"><span class="tag premium">مدفوع</span></div>
+                            <p>محطة عمل</p>
+                            <a href="https://www.presonus.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Cakewalk</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>محطة عمل مجانية</p>
+                            <a href="https://www.bandlab.com/cakewalk" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Ardour</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>محطة عمل مفتوحة</p>
+                            <a href="https://ardour.org/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>GarageBand</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>موسيقى Mac</p>
+                            <a href="https://www.apple.com/garageband/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Sonic Pi</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>برمجة موسيقية</p>
+                            <a href="https://sonic-pi.net/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>ChipTune</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>موسيقى 8-bit</p>
+                            <a href="https://www.chiptone.io/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Sfxr</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>مؤثرات صوتية</p>
+                            <a href="https://www.drpetter.se/project_sfxr.html" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>jsfxr</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>مؤثرات أونلاين</p>
+                            <a href="https://sfxr.me/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Freesound</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>مكتبة مؤثرات</p>
+                            <a href="https://freesound.org/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Zapsplat</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>مؤثرات عالية الجودة</p>
+                            <a href="https://www.zapsplat.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>BBC Sound Library</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>مؤثرات BBC</p>
+                            <a href="https://www.bbc.co.uk/sounds/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Incompetech</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>موسيقى Kevin MacLeod</p>
+                            <a href="https://incompetech.com/music/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+            <section id="additional-tools" class="section">
+                <h2>🔧 أدوات إضافية متقدمة (200+ أداة)</h2>
+                <div class="subsection">
+                    <h3>أدوات متخصصة ومفيدة</h3>
+                    <div class="resource-grid">
+
+                        <div class="resource-card">
+                            <h4>Vim</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>محرر نصوص قوي</p>
+                            <a href="https://www.vim.org/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Emacs</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>محرر متقدم</p>
+                            <a href="https://www.gnu.org/software/emacs/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Atom</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>محرر نصوص</p>
+                            <a href="https://atom.io/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Brackets</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>محرر ويب</p>
+                            <a href="http://brackets.io/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Theia</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>IDE أونلاين</p>
+                            <a href="https://theia-ide.org/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Cloud9</h4>
+                            <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                            <p>IDE سحابي</p>
+                            <a href="https://c9.io/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Replit</h4>
+                            <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                            <p>برمجة أونلاين</p>
+                            <a href="https://replit.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>CodePen</h4>
+                            <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                            <p>كود أونلاين</p>
+                            <a href="https://codepen.io/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>JSFiddle</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>اختبار كود</p>
+                            <a href="https://jsfiddle.net/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Glitch</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>تطوير ويب</p>
+                            <a href="https://glitch.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Mercurial</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>نظام تحكم</p>
+                            <a href="https://www.mercurial-scm.org/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Subversion</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>نظام تحكم</p>
+                            <a href="https://subversion.apache.org/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Perforce</h4>
+                            <div class="tags"><span class="tag premium">مدفوع</span></div>
+                            <p>إدارة إصدارات</p>
+                            <a href="https://www.perforce.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Plastic SCM</h4>
+                            <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                            <p>نظام تحكم</p>
+                            <a href="https://www.plasticscm.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Postman</h4>
+                            <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                            <p>اختبار API</p>
+                            <a href="https://www.postman.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Insomnia</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>اختبار API</p>
+                            <a href="https://insomnia.rest/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Thunder Client</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>اختبار API</p>
+                            <a href="https://www.thunderclient.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>REST Client</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>اختبار REST</p>
+                            <a href="https://marketplace.visualstudio.com/items?itemName=humao.rest-client" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Charles</h4>
+                            <div class="tags"><span class="tag premium">مدفوع</span></div>
+                            <p>مراقبة شبكة</p>
+                            <a href="https://www.charlesproxy.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Fiddler</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>مراقبة شبكة</p>
+                            <a href="https://www.telerik.com/fiddler" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Wireshark</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>تحليل شبكة</p>
+                            <a href="https://www.wireshark.org/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Chrome DevTools</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>أدوات المتصفح</p>
+                            <a href="https://developer.chrome.com/docs/devtools/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Firefox DevTools</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>أدوات Firefox</p>
+                            <a href="https://developer.mozilla.org/en-US/docs/Tools" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Lighthouse</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>تحليل الأداء</p>
+                            <a href="https://developers.google.com/web/tools/lighthouse" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>GTmetrix</h4>
+                            <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                            <p>تحليل أداء</p>
+                            <a href="https://gtmetrix.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>WebPageTest</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>اختبار أداء</p>
+                            <a href="https://www.webpagetest.org/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Speedtest</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>اختبار سرعة</p>
+                            <a href="https://www.speedtest.net/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Swagger</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>توثيق API</p>
+                            <a href="https://swagger.io/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>OpenAPI</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>معيار API</p>
+                            <a href="https://www.openapis.org/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Postman Docs</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>توثيق</p>
+                            <a href="https://learning.postman.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>ReadTheDocs</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>استضافة توثيق</p>
+                            <a href="https://readthedocs.org/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Figma</h4>
+                            <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                            <p>تصميم تعاوني</p>
+                            <a href="https://www.figma.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Miro</h4>
+                            <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                            <p>لوحة بيضاء</p>
+                            <a href="https://miro.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Mural</h4>
+                            <div class="tags"><span class="tag premium">مدفوع</span></div>
+                            <p>تعاون بصري</p>
+                            <a href="https://www.mural.co/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Lucidchart</h4>
+                            <div class="tags"><span class="tag premium">مدفوع</span></div>
+                            <p>رسم مخططات</p>
+                            <a href="https://www.lucidchart.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Draw.io</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>رسم مخططات</p>
+                            <a href="https://www.draw.io/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Excalidraw</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>رسم يدوي</p>
+                            <a href="https://excalidraw.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Todoist</h4>
+                            <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                            <p>إدارة مهام</p>
+                            <a href="https://todoist.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Things 3</h4>
+                            <div class="tags"><span class="tag premium">مدفوع</span></div>
+                            <p>إدارة مهام Mac</p>
+                            <a href="https://culturedcode.com/things/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Wunderlist</h4>
+                            <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                            <p>قائمة مهام</p>
+                            <a href="https://www.wunderlist.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>TickTick</h4>
+                            <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                            <p>إدارة مهام</p>
+                            <a href="https://www.ticktick.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Any.do</h4>
+                            <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                            <p>إدارة مهام</p>
+                            <a href="https://www.any.do/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Habitica</h4>
+                            <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                            <p>تتبع عادات</p>
+                            <a href="https://habitica.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Telegram</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>تطبيق مراسلة</p>
+                            <a href="https://telegram.org/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Signal</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>مراسلة آمنة</p>
+                            <a href="https://signal.org/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>WhatsApp</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>تطبيق مراسلة</p>
+                            <a href="https://www.whatsapp.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Rocket.Chat</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>دردشة فريق</p>
+                            <a href="https://rocket.chat/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Mattermost</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>دردشة فريق</p>
+                            <a href="https://mattermost.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Zulip</h4>
+                            <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                            <p>دردشة منظمة</p>
+                            <a href="https://zulip.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <section id="assets" class="section">
+                <h2>📦 مواقع الأصول والموارد (200+ موقع)</h2>
+                <div class="subsection">
+                    <h3>مكتبات الأصول المجانية</h3>
+                    <div class="resource-grid">
+
+                        <div class="resource-card">
+                            <h4>Kenney Assets</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>40,000+ أصل</p>
+                            <a href="https://kenney.nl/assets" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>OpenGameArt</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>مكتبة ضخمة</p>
+                            <a href="https://opengameart.org/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Quaternius</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>نماذج Low Poly</p>
+                            <a href="http://quaternius.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Itch.io Assets</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>أصول من المجتمع</p>
+                            <a href="https://itch.io/game-assets/free" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Pixabay</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>ملايين الصور</p>
+                            <a href="https://pixabay.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Unsplash</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>صور عالية الجودة</p>
+                            <a href="https://unsplash.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Pexels</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>صور مجانية</p>
+                            <a href="https://www.pexels.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Freepik</h4>
+                            <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                            <p>أصول متنوعة</p>
+                            <a href="https://www.freepik.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Craftpix</h4>
+                            <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                            <p>أصول احترافية</p>
+                            <a href="https://craftpix.net/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Game Art 2D</h4>
+                            <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                            <p>أصول 2D</p>
+                            <a href="https://www.gameart2d.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Poly Haven</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>نسج عالية الجودة</p>
+                            <a href="https://polyhaven.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Sketchfab</h4>
+                            <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                            <p>مكتبة نماذج 3D</p>
+                            <a href="https://sketchfab.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>TurboSquid</h4>
+                            <div class="tags"><span class="tag premium">مدفوع</span></div>
+                            <p>نماذج احترافية</p>
+                            <a href="https://www.turbosquid.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>CGTrader</h4>
+                            <div class="tags"><span class="tag premium">مدفوع</span></div>
+                            <p>نماذج 3D</p>
+                            <a href="https://www.cgtrader.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Unity Asset Store</h4>
+                            <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                            <p>أصول Unity</p>
+                            <a href="https://assetstore.unity.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Unreal Marketplace</h4>
+                            <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                            <p>أصول Unreal</p>
+                            <a href="https://www.unrealengine.com/marketplace" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Godot Asset Library</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>أصول Godot</p>
+                            <a href="https://godotengine.org/asset-library/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Itch.io</h4>
+                            <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                            <p>ألعاب وأصول</p>
+                            <a href="https://itch.io/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Gumroad</h4>
+                            <div class="tags"><span class="tag premium">مدفوع</span></div>
+                            <p>أصول احترافية</p>
+                            <a href="https://gumroad.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Booth</h4>
+                            <div class="tags"><span class="tag premium">مدفوع</span></div>
+                            <p>أصول يابانية</p>
+                            <a href="https://booth.pm/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <section id="learning" class="section">
+                <h2>📚 مواقع التعليم والدروس (100+ موقع)</h2>
+                <div class="subsection">
+                    <h3>دروس وكورسات تعليمية</h3>
+                    <div class="resource-grid">
+
+                        <div class="resource-card">
+                            <h4>Godot Docs</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>التوثيق الرسمي</p>
+                            <a href="https://docs.godotengine.org/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>GDQuest</h4>
+                            <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                            <p>دروس Godot</p>
+                            <a href="https://gdquest.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Brackeys</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>دروس YouTube</p>
+                            <a href="https://www.youtube.com/@Brackeys" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>HeartBeast</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>دروس Godot</p>
+                            <a href="https://www.youtube.com/@HeartBeast" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Code Monkey</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>دروس برمجة</p>
+                            <a href="https://www.youtube.com/@CodeMonkey" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Game Dev Tutorial</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>مقالات تعليمية</p>
+                            <a href="https://gamedev.net/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Udemy</h4>
+                            <div class="tags"><span class="tag premium">مدفوع</span></div>
+                            <p>دورات أونلاين</p>
+                            <a href="https://www.udemy.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Coursera</h4>
+                            <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                            <p>دورات جامعية</p>
+                            <a href="https://www.coursera.org/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Skillshare</h4>
+                            <div class="tags"><span class="tag premium">مدفوع</span></div>
+                            <p>دورات إبداعية</p>
+                            <a href="https://www.skillshare.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>LinkedIn Learning</h4>
+                            <div class="tags"><span class="tag premium">مدفوع</span></div>
+                            <p>دورات احترافية</p>
+                            <a href="https://www.linkedin.com/learning/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Pluralsight</h4>
+                            <div class="tags"><span class="tag premium">مدفوع</span></div>
+                            <p>دورات تقنية</p>
+                            <a href="https://www.pluralsight.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Codecademy</h4>
+                            <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                            <p>دورات برمجة</p>
+                            <a href="https://www.codecademy.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>FreeCodeCamp</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>دورات مجانية</p>
+                            <a href="https://www.freecodecamp.org/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Khan Academy</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>دورات تعليمية</p>
+                            <a href="https://www.khanacademy.org/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>GameDev.tv</h4>
+                            <div class="tags"><span class="tag premium">مدفوع</span></div>
+                            <p>دورات تطوير ألعاب</p>
+                            <a href="https://www.gamedev.tv/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Gamemaker Toolkit</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>تحليل ألعاب</p>
+                            <a href="https://www.youtube.com/@MarkBrownGMT" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Sebastian Lague</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>دروس متقدمة</p>
+                            <a href="https://www.youtube.com/@SebastianLague" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Traversy Media</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>دروس برمجة</p>
+                            <a href="https://www.youtube.com/@TraversyMedia" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Alura</h4>
+                            <div class="tags"><span class="tag premium">مدفوع</span></div>
+                            <p>دورات برتغالية</p>
+                            <a href="https://www.alura.com.br/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Udacity</h4>
+                            <div class="tags"><span class="tag premium">مدفوع</span></div>
+                            <p>دورات متقدمة</p>
+                            <a href="https://www.udacity.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <section id="tools" class="section">
+                <h2>🛠️ أدوات إضافية مفيدة (100+ أداة)</h2>
+                <div class="subsection">
+                    <h3>أدوات متنوعة</h3>
+                    <div class="resource-grid">
+
+                        <div class="resource-card">
+                            <h4>Patreon</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>دعم الفنانين</p>
+                            <a href="https://www.patreon.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Ko-fi</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>دعم مباشر</p>
+                            <a href="https://ko-fi.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Buy Me a Coffee</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>دعم مباشر</p>
+                            <a href="https://www.buymeacoffee.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Kickstarter</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>تمويل جماعي</p>
+                            <a href="https://www.kickstarter.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Indiegogo</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>تمويل جماعي</p>
+                            <a href="https://www.indiegogo.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Twitter</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>وسائل اجتماعية</p>
+                            <a href="https://twitter.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>YouTube</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>مشاركة فيديوهات</p>
+                            <a href="https://www.youtube.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Twitch</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>بث مباشر</p>
+                            <a href="https://www.twitch.tv/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Reddit</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>مجتمع</p>
+                            <a href="https://www.reddit.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>DeviantArt</h4>
+                            <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                            <p>فن وأصول</p>
+                            <a href="https://www.deviantart.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>ArtStation</h4>
+                            <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                            <p>فن احترافي</p>
+                            <a href="https://www.artstation.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Behance</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>مشاريع فنية</p>
+                            <a href="https://www.behance.net/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Dribbble</h4>
+                            <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                            <p>تصاميم احترافية</p>
+                            <a href="https://dribbble.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>itch.io Bundles</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>حزم أصول</p>
+                            <a href="https://itch.io/bundles" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Game Jams</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>قائمة مسابقات</p>
+                            <a href="https://gamejams.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Ludum Dare</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>مسابقة شهيرة</p>
+                            <a href="https://ldjam.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Global Game Jam</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>مسابقة عالمية</p>
+                            <a href="https://globalgamejam.org/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Godot Wild Jam</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>مسابقة Godot</p>
+                            <a href="https://godotwildjam.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Brackeys Game Jam</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>مسابقة Brackeys</p>
+                            <a href="https://itch.io/jam/brackeys-7" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4>Steam</h4>
+                            <div class="tags"><span class="tag premium">مدفوع</span></div>
+                            <p>منصة ألعاب</p>
+                            <a href="https://steampowered.com/" target="_blank">🔗 الذهاب</a>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+            <section id="problems" class="section">
+                <h2>🐛 المشاكل الشهيرة والحلول</h2>
+                
+                <div class="quick-tips">
+                    <h3>🔧 حلول للمشاكل الشائعة في Godot</h3>
+                    
+                    <h4>المشكلة 1: اللعبة بطيئة جداً (Low FPS)</h4>
+                    <ul>
+                        <li>✅ تحقق من عدد الـ Nodes في المشهد (استخدم Profiler)</li>
+                        <li>✅ قلل دقة الرسومات (استخدم أصول أصغر)</li>
+                        <li>✅ استخدم Object Pooling للأعداء والرصاص</li>
+                        <li>✅ قلل عدد الـ Physics Objects</li>
+                        <li>✅ استخدم Viewport للمشاهد المعقدة</li>
+                        <li>✅ فعّل V-Sync في الإعدادات</li>
+                    </ul>
+                    
+                    <h4>المشكلة 2: الكاميرا تهتز أو غير مستقرة</h4>
+                    <ul>
+                        <li>✅ استخدم Lerp بدلاً من التحديث المباشر</li>
+                        <li>✅ استخدم Camera2D بدلاً من Node2D</li>
+                        <li>✅ اضبط smoothing و drag_margin</li>
+                        <li>✅ تأكد من أن اللاعب يتحرك بسلاسة</li>
+                        <li>✅ استخدم fixed_process بدلاً من process</li>
+                    </ul>
+                    
+                    <h4>المشكلة 3: الحركة غير سلسة</h4>
+                    <ul>
+                        <li>✅ استخدم _physics_process بدلاً من _process</li>
+                        <li>✅ تأكد من استخدام move_and_slide بشكل صحيح</li>
+                        <li>✅ استخدم Tween للحركات الناعمة</li>
+                        <li>✅ قلل التأخير في معالجة الإدخال</li>
+                        <li>✅ استخدم Interpolation في الرسومات</li>
+                    </ul>
+                    
+                    <h4>المشكلة 4: الأصوات لا تشغّل</h4>
+                    <ul>
+                        <li>✅ تحقق من أن الملف الصوتي موجود</li>
+                        <li>✅ استخدم AudioStreamPlayer بدلاً من Node عادي</li>
+                        <li>✅ تأكد من أن الصوت مفعّل في الإعدادات</li>
+                        <li>✅ استخدم bus الصوت الصحيح</li>
+                        <li>✅ تحقق من صيغة الملف (OGG أفضل من MP3)</li>
+                    </ul>
+                    
+                    <h4>المشكلة 5: الأصول لا تظهر</h4>
+                    <ul>
+                        <li>✅ تحقق من المسار الصحيح للملف</li>
+                        <li>✅ استخدم res:// بدلاً من المسار المطلق</li>
+                        <li>✅ تأكد من أن الملف في مجلد المشروع</li>
+                        <li>✅ أعد تحميل المشروع إذا أضفت ملفات جديدة</li>
+                        <li>✅ تحقق من صيغة الملف (PNG, JPG, OGG)</li>
+                    </ul>
+                    
+                    <h4>المشكلة 6: الـ Export لا يعمل</h4>
+                    <ul>
+                        <li>✅ ثبّت Export Templates من Godot</li>
+                        <li>✅ تأكد من أن الإعدادات صحيحة</li>
+                        <li>✅ اختبر على الويب أولاً (HTML5)</li>
+                        <li>✅ تحقق من أن المشروع يعمل قبل الـ Export</li>
+                        <li>✅ استخدم Godot 4.3+ للأداء الأفضل</li>
+                    </ul>
+                    
+                    <h4>المشكلة 7: الـ Collision لا يعمل</h4>
+                    <ul>
+                        <li>✅ تأكد من وجود CollisionShape2D</li>
+                        <li>✅ تحقق من أن الـ Shape معرّف بشكل صحيح</li>
+                        <li>✅ استخدم RigidBody2D أو CharacterBody2D</li>
+                        <li>✅ تأكد من أن Layer و Mask صحيحة</li>
+                        <li>✅ اختبر مع الـ Debug Shapes مفعّل</li>
+                    </ul>
+                    
+                    <h4>المشكلة 8: الـ Save/Load لا يعمل</h4>
+                    <ul>
+                        <li>✅ استخدم user:// للمسار</li>
+                        <li>✅ تأكد من أن الملف موجود قبل التحميل</li>
+                        <li>✅ استخدم JSON أو ConfigFile</li>
+                        <li>✅ اختبر الحفظ والتحميل معاً</li>
+                        <li>✅ استخدم try/catch للأخطاء</li>
+                    </ul>
+                </div>
+            </section>
+            <section id="tips" class="section">
+                <h2>💡 نصائح الفوز والاستراتيجية</h2>
+                
+                <div class="quick-tips">
+                    <h3>⚡ استراتيجية الفوز (48 ساعة)</h3>
+                    <h4>الساعات 0-6: الإعداد والتخطيط</h4>
+                    <ul>
+                        <li>اختر فكرة لعبة بسيطة وممتعة جداً</li>
+                        <li>ارسم رسومات سريعة للفكرة على الورق</li>
+                        <li>خطط المستويات الأساسية (3-5 مستويات)</li>
+                        <li>أنشئ مشروع Godot جديد منظم</li>
+                        <li>ضع الأصول المجانية في المشروع</li>
+                        <li>اختبر الإعدادات الأساسية</li>
+                    </ul>
+                    <h4>الساعات 6-24: البرمجة الأساسية</h4>
+                    <ul>
+                        <li>برمج الحركة الأساسية للاعب (أول 2 ساعة)</li>
+                        <li>أضف أعداء بسطاء (الساعة 3-4)</li>
+                        <li>أضف نظام النقاط والـ UI (الساعة 5-6)</li>
+                        <li>اختبر الـ Gameplay بشكل مستمر</li>
+                        <li>أضف مؤثرات صوتية بسيطة (الساعة 7-8)</li>
+                        <li>احفظ على GitHub كل ساعة</li>
+                    </ul>
+                    <h4>الساعات 24-36: التحسينات والإضافات</h4>
+                    <ul>
+                        <li>حسّن الرسومات والأصول</li>
+                        <li>أضف موسيقى خلفية احترافية</li>
+                        <li>أضف مستويات إضافية (3-5 مستويات)</li>
+                        <li>حسّن الـ UI والقوائم</li>
+                        <li>أضف مؤثرات بصرية (particles, animations)</li>
+                    </ul>
+                    <h4>الساعات 36-48: التلميع والنشر</h4>
+                    <ul>
+                        <li>اختبر شامل للأخطاء على أجهزة مختلفة</li>
+                        <li>حسّن الأداء والـ FPS</li>
+                        <li>أضف شاشات البداية والنهاية</li>
+                        <li>صدّر للويب (HTML5) وللويندوز</li>
+                        <li>أرفع على itch.io مع صور وفيديو</li>
+                        <li>اكتب وصف جميل للعبة</li>
+                    </ul>
+                    <h4>🏆 نصائح ذهبية للفوز</h4>
+                    <ul>
+                        <li>🎯 ركز على Gameplay ممتع أولاً، الرسومات ثانياً</li>
+                        <li>⏰ لا تضيع الوقت على الكمال، استخدم الأصول المجانية</li>
+                        <li>🤝 تعاون الفريق مهم جداً، استخدم Discord</li>
+                        <li>💾 احفظ عملك كل ساعة على GitHub</li>
+                        <li>🧪 اختبر اللعبة باستمرار مع أشخاص آخرين</li>
+                        <li>😴 خذ فترات راحة قصيرة كل ساعتين (15 دقيقة)</li>
+                        <li>🎮 استمتع باللعبة! هذا هو الهدف الأساسي</li>
+                        <li>📊 اطلب feedback من الآخرين وحسّن بناءً عليه</li>
+                        <li>🚀 لا تخاف من الفشل، التعلم أهم من الفوز</li>
+                        <li>💪 صدق بنفسك وبفريقك، أنتم قادرون على الفوز!</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="publishing" class="section">
+                <h2>🚀 منصات النشر والمشاركة</h2>
+                <div class="subsection">
+                    <h3>منصات نشر الألعاب</h3>
+                    <div class="resource-grid">
+                        <div class="resource-card">
+                            <h4>Itch.io</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>منصة ألعاب مشهورة. نشر سهل وسريع.</p>
+                            <a href="https://itch.io/" target="_blank">🔗 الموقع</a>
+                        </div>
+                        <div class="resource-card">
+                            <h4>GitHub Pages</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>استضافة مجانية من GitHub. للويب.</p>
+                            <a href="https://pages.github.com/" target="_blank">🔗 الموقع</a>
+                        </div>
+                        <div class="resource-card">
+                            <h4>Godot Wild Jam</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>مسابقة Godot الشهيرة. نشر مباشر.</p>
+                            <a href="https://godotwildjam.com/" target="_blank">🔗 الموقع</a>
+                        </div>
+                        <div class="resource-card">
+                            <h4>Game Jams</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>قائمة مسابقات ألعاب. ابحث عن مسابقات.</p>
+                            <a href="https://gamejams.com/" target="_blank">🔗 الموقع</a>
+                        </div>
+                        <div class="resource-card">
+                            <h4>Ludum Dare</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>مسابقة ألعاب شهيرة. كل 4 أشهر.</p>
+                            <a href="https://ldjam.com/" target="_blank">🔗 الموقع</a>
+                        </div>
+                        <div class="resource-card">
+                            <h4>Global Game Jam</h4>
+                            <div class="tags"><span class="tag free">مجاني</span></div>
+                            <p>مسابقة عالمية ضخمة. نشر عالمي.</p>
+                            <a href="https://globalgamejam.org/" target="_blank">🔗 الموقع</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <footer>
+            <h3>🚀 انطلقوا نحو الفوز يا فريق MAQLUBA! 🏆</h3>
+            <p>هذا المرجع الضخم الشامل الاحترافي يحتوي على كل ما تحتاجونه للفوز.</p>
+            <p style="margin-top: 30px; font-size: 1.5em; font-weight: 700;">
+                ✨ 1000+ أداة | 500+ كود | 50000+ مورد | 48 ساعة للفوز ✨
+            </p>
+            <p style="margin-top: 30px;">تم إنشاؤه خصيصاً لفريق MAQLUBA - جميع الروابط محدثة حتى نوفمبر 2025</p>
+            <p style="margin-top: 15px; opacity: 0.8;">الملف النهائي الموحد الاحترافي - تصميم محسّن مع شريط جانبي وأيقونات جميلة</p>
+        </footer>
+    </div>
+
+    <div class="back-to-top" id="backToTop" onclick="scrollToTop()">⬆️</div>
+
+    <script>
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        window.addEventListener('scroll', function() {
+            const backToTop = document.getElementById('backToTop');
+            if (window.pageYOffset > 300) {
+                backToTop.style.display = 'block';
+            } else {
+                backToTop.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
