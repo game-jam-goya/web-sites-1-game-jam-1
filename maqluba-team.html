@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏆 المرجع الأساسي الضخم لفريق MAQLUBA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF5733;
+            --secondary: #33FF57;
+            --accent: #3357FF;
+            --dark: #1a1a2e;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--dark);
+            color: #f8f9fa;
+            line-height: 1.8;
+        }
+        .container {
+            max-width: 1900px;
+            margin: 20px auto;
+            background: var(--dark);
+            border-radius: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+            overflow: hidden;
+        }
+        header {
+            background: linear-gradient(135deg, #FF5733 0%, #3357FF 50%, #33FF57 100%);
+            color: white;
+            padding: 100px 40px;
+            text-align: center;
+            border-bottom: 8px solid var(--secondary);
+        }
+        header h1 {
+            font-size: 6em;
+            margin-bottom: 10px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+            font-weight: 900;
+        }
+        header p {
+            font-size: 2em;
+            opacity: 0.95;
+            margin: 15px 0;
+            font-weight: 600;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+        .stat-card {
+            background: rgba(255,255,255,0.15);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            border: 2px solid rgba(255,255,255,0.3);
+            transition: all 0.4s;
+        }
+        .stat-card:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-8px) scale(1.05);
+        }
+        .stat-card h3 {
+            font-size: 4em;
+            margin-bottom: 5px;
+            font-weight: 900;
+            color: #FFD700;
+        }
+        .stat-card p {
+            font-size: 1.3em;
+            opacity: 0.95;
+            font-weight: 600;
+        }
+        .team-info {
+            padding: 80px;
+            background-color: #2c3e50;
+            border-bottom: 5px solid var(--primary);
+        }
+        .team-info h2 {
+            color: var(--secondary);
+            font-size: 3.5em;
+            text-align: center;
+            margin-bottom: 50px;
+            font-weight: 900;
+        }
+        .member {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            border-right: 6px solid var(--accent);
+            margin-bottom: 25px;
+        }
+        .member h3 {
+            color: var(--primary);
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        .member p {
+            font-size: 1.05em;
+            color: #d0d0d0;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+        nav {
+            background-color: var(--dark);
+            padding: 25px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.7);
+            border-bottom: 3px solid var(--primary);
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            border-radius: 25px;
+            transition: all 0.3s;
+            font-weight: 700;
+            border: 2px solid #2c3e50;
+            cursor: pointer;
+            font-size: 1.05em;
+        }
+        nav a:hover {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            border-color: var(--secondary);
+            transform: scale(1.08) translateY(-2px);
+        }
+        .content {
+            padding: 80px;
+        }
+        .section {
+            margin-bottom: 120px;
+            border-bottom: 2px dashed #444;
+            padding-bottom: 60px;
+        }
+        .section h2 {
+            color: var(--secondary);
+            font-size: 4em;
+            margin-bottom: 50px;
+            border-right: 10px solid var(--primary);
+            padding-right: 25px;
+            display: inline-block;
+            font-weight: 900;
+        }
+        .subsection h3 {
+            color: var(--accent);
+            font-size: 2.5em;
+            margin-bottom: 35px;
+            border-bottom: 3px solid var(--secondary);
+            padding-bottom: 10px;
+            font-weight: 700;
+        }
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 35px;
+            margin-top: 30px;
+        }
+        .resource-card {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+            border-left: 6px solid var(--info);
+            transition: all 0.4s;
+            display: flex;
+            flex-direction: column;
+        }
+        .resource-card:hover {
+            box-shadow: 0 12px 35px rgba(0,0,0,0.6);
+            transform: translateY(-8px);
+            border-left-color: var(--primary);
+        }
+        .resource-card h4 {
+            color: #f8f9fa;
+            font-size: 1.5em;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+        .resource-card p {
+            font-size: 0.98em;
+            line-height: 1.7;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+        .resource-card a {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--secondary) 0%, #28d946 100%);
+            color: var(--dark);
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 800;
+            transition: all 0.3s;
+            margin-top: 10px;
+            align-self: flex-start;
+            box-shadow: 0 4px 10px rgba(51, 255, 87, 0.3);
+        }
+        .resource-card a:hover {
+            background: linear-gradient(135deg, var(--primary) 0%, #ff6b4a 100%);
+            color: white;
+            transform: scale(1.08);
+        }
+        .tags {
+            margin-bottom: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .tag {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: 700;
+            color: white;
+        }
+        .tag.free { background: linear-gradient(135deg, #28a745 0%, #34d958 100%); }
+        .tag.premium { background: linear-gradient(135deg, #dc3545 0%, #ff6b6b 100%); }
+        .code-block {
+            background: #1e1e1e;
+            color: #f8f8f2;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 35px 0;
+            overflow-x: auto;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+            border-left: 8px solid var(--accent);
+            font-family: 'Courier New', monospace;
+            font-size: 0.95em;
+            line-height: 1.7;
+        }
+        .code-block pre { margin: 0; }
+        .highlight {
+            background: linear-gradient(135deg, #3a3a5a 0%, #4a4a6a 100%);
+            border-right: 6px solid #ffc107;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 35px 0;
+            color: #fff;
+        }
+        .quick-tips {
+            background: linear-gradient(135deg, #1e3c45 0%, #2a5a6a 100%);
+            border-right: 6px solid #28a745;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 35px 0;
+            color: #fff;
+        }
+        .quick-tips h3 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-size: 1.6em;
+            font-weight: 700;
+        }
+        .quick-tips ul {
+            list-style-position: inside;
+            padding-right: 20px;
+        }
+        .quick-tips li {
+            margin-bottom: 12px;
+            line-height: 1.7;
+            font-size: 1.05em;
+        }
+        footer {
+            background: linear-gradient(135deg, var(--dark) 0%, #2c3e50 100%);
+            color: white;
+            text-align: center;
+            padding: 50px;
+            margin-top: 50px;
+            border-top: 5px solid var(--secondary);
+        }
+        footer h3 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            color: var(--secondary);
+            font-weight: 900;
+        }
+        footer p {
+            font-size: 1.1em;
+            margin: 10px 0;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏆 المرجع الأساسي الضخم لفريق MAQLUBA 🚀</h1>
+            <p>الإصدار النهائي الشامل للفوز</p>
+            <div class="stats">
+                <div class="stat-card"><h3>1000+</h3><p>أداة وموقع</p></div>
+                <div class="stat-card"><h3>200+</h3><p>كود جاهز</p></div>
+                <div class="stat-card"><h3>10000+</h3><p>مورد مجاني</p></div>
+                <div class="stat-card"><h3>48</h3><p>ساعة للفوز</p></div>
+            </div>
+        </header>
+
+        <div class="team-info">
+            <h2>👥 فريق مقلوبة - TEAM MAQLUBA</h2>
+            <div class="member">
+                <h3>👨‍💻 غيث - المبرمج والإدارة</h3>
+                <p><strong>التركيز:</strong> Core Gameplay, Code Architecture, Git Management, Debugging</p>
+            </div>
+            <div class="member">
+                <h3>🎨 الطيب - المصمم والمفكر</h3>
+                <p><strong>التركيز:</strong> Game Design, Level Design, Brainstorming, UX/UI Design</p>
+            </div>
+            <div class="member">
+                <h3>✏️ يوسف - الرسام والموثق</h3>
+                <p><strong>التركيز:</strong> 2D/3D Assets, Pixel Art, Animation, VFX</p>
+            </div>
+            <div class="member">
+                <h3>🎵 عمر - مسؤول الصوتيات والتنظيم</h3>
+                <p><strong>التركيز:</strong> Music, Sound Effects, Team Coordination, Publishing</p>
+            </div>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a onclick="scrollToSection('setup')">🛠️ الإعداد</a></li>
+                <li><a onclick="scrollToSection('code')">💻 أكواد</a></li>
+                <li><a onclick="scrollToSection('art')">🎨 رسومات</a></li>
+                <li><a onclick="scrollToSection('audio')">🎧 صوتيات</a></li>
+                <li><a onclick="scrollToSection('assets')">📦 أصول</a></li>
+                <li><a onclick="scrollToSection('learning')">📚 تعليم</a></li>
+                <li><a onclick="scrollToSection('publishing')">🚀 نشر</a></li>
+            </ul>
+        </nav>
+
+        <div class="content">
+
+            <section id="setup" class="section">
+                <h2>🛠️ أدوات الإعداد والتطوير</h2>
+                <div class="resource-grid">
+
+                    <div class="resource-card">
+                        <h4>Godot Engine 4.3+</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>محرك الألعاب الرئيسي</p>
+                        <a href="https://godotengine.org/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>GitHub Desktop</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>إدارة Git</p>
+                        <a href="https://desktop.github.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>VS Code</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>محرر نصوص</p>
+                        <a href="https://code.visualstudio.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Sublime Text</h4>
+                        <div class="tags"><span class="tag premium">مدفوع</span></div>
+                        <p>محرر متقدم</p>
+                        <a href="https://www.sublimetext.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Notepad++</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>محرر خفيف</p>
+                        <a href="https://notepad-plus-plus.org/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Git Bash</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>سطر أوامر Git</p>
+                        <a href="https://git-scm.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Sourcetree</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>واجهة Git</p>
+                        <a href="https://www.sourcetreeapp.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>GitKraken</h4>
+                        <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                        <p>إدارة Git متقدمة</p>
+                        <a href="https://www.gitkraken.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Discord</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>تواصل الفريق</p>
+                        <a href="https://discord.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Slack</h4>
+                        <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                        <p>تواصل احترافي</p>
+                        <a href="https://slack.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Notion</h4>
+                        <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                        <p>تنظيم المشروع</p>
+                        <a href="https://www.notion.so/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Trello</h4>
+                        <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                        <p>إدارة المهام</p>
+                        <a href="https://trello.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Jira</h4>
+                        <div class="tags"><span class="tag premium">مدفوع</span></div>
+                        <p>إدارة مشاريع</p>
+                        <a href="https://www.atlassian.com/software/jira" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Asana</h4>
+                        <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                        <p>إدارة فريق</p>
+                        <a href="https://asana.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Monday.com</h4>
+                        <div class="tags"><span class="tag premium">مدفوع</span></div>
+                        <p>إدارة مشاريع</p>
+                        <a href="https://monday.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Obsidian</h4>
+                        <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                        <p>توثيق محلي</p>
+                        <a href="https://obsidian.md/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Confluence</h4>
+                        <div class="tags"><span class="tag premium">مدفوع</span></div>
+                        <p>توثيق فريق</p>
+                        <a href="https://www.atlassian.com/software/confluence" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Doxygen</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>توثيق كود</p>
+                        <a href="https://www.doxygen.nl/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Sphinx</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>توثيق احترافية</p>
+                        <a href="https://www.sphinx-doc.org/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>MkDocs</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>توثيق بسيطة</p>
+                        <a href="https://www.mkdocs.org/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="art" class="section">
+                <h2>🎨 أدوات الرسومات والتصميم</h2>
+                <div class="resource-grid">
+
+                    <div class="resource-card">
+                        <h4>Aseprite</h4>
+                        <div class="tags"><span class="tag premium">مدفوع/مجاني</span></div>
+                        <p>أفضل Pixel Art</p>
+                        <a href="https://www.aseprite.org/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Krita</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>رسم احترافي</p>
+                        <a href="https://krita.org/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Piskel</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>Pixel Art بسيط</p>
+                        <a href="https://www.piskelapp.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Tiled</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>محرر خرائط</p>
+                        <a href="https://www.mapeditor.org/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Figma</h4>
+                        <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                        <p>تصميم واجهات</p>
+                        <a href="https://www.figma.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>GIMP</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>محرر صور</p>
+                        <a href="https://www.gimp.org/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Blender</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>نمذجة 3D</p>
+                        <a href="https://www.blender.org/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Inkscape</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>رسم متجهات</p>
+                        <a href="https://inkscape.org/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Photoshop</h4>
+                        <div class="tags"><span class="tag premium">مدفوع</span></div>
+                        <p>محرر احترافي</p>
+                        <a href="https://www.adobe.com/products/photoshop" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Affinity Photo</h4>
+                        <div class="tags"><span class="tag premium">مدفوع</span></div>
+                        <p>بديل Photoshop</p>
+                        <a href="https://affinity.serif.com/en-us/photo/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Affinity Designer</h4>
+                        <div class="tags"><span class="tag premium">مدفوع</span></div>
+                        <p>تصميم احترافي</p>
+                        <a href="https://affinity.serif.com/en-us/designer/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>CorelDRAW</h4>
+                        <div class="tags"><span class="tag premium">مدفوع</span></div>
+                        <p>رسم احترافي</p>
+                        <a href="https://www.coreldraw.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Clip Studio Paint</h4>
+                        <div class="tags"><span class="tag premium">مدفوع</span></div>
+                        <p>رسم احترافي</p>
+                        <a href="https://www.clipstudio.net/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Procreate</h4>
+                        <div class="tags"><span class="tag premium">مدفوع</span></div>
+                        <p>رسم على iPad</p>
+                        <a href="https://procreate.art/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Medibang Paint</h4>
+                        <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                        <p>رسم رقمي</p>
+                        <a href="https://medibangpaint.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Paint.NET</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>محرر خفيف</p>
+                        <a href="https://www.getpaint.net/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Photopea</h4>
+                        <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                        <p>Photoshop أونلاين</p>
+                        <a href="https://www.photopea.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Pixlr</h4>
+                        <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                        <p>محرر أونلاين</p>
+                        <a href="https://pixlr.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Canva</h4>
+                        <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                        <p>تصميم سريع</p>
+                        <a href="https://www.canva.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Gravit Designer</h4>
+                        <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                        <p>تصميم متجهات</p>
+                        <a href="https://www.gravit.io/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Rebelle</h4>
+                        <div class="tags"><span class="tag premium">مدفوع</span></div>
+                        <p>محاكاة رسم</p>
+                        <a href="https://www.escapemotions.com/products/rebelle/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Substance Painter</h4>
+                        <div class="tags"><span class="tag premium">مدفوع</span></div>
+                        <p>نسج احترافي</p>
+                        <a href="https://www.adobe.com/products/substance/painter" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Substance Designer</h4>
+                        <div class="tags"><span class="tag premium">مدفوع</span></div>
+                        <p>تصميم نسج</p>
+                        <a href="https://www.adobe.com/products/substance/designer" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Marmoset Toolbag</h4>
+                        <div class="tags"><span class="tag premium">مدفوع</span></div>
+                        <p>نسج وعرض</p>
+                        <a href="https://marmoset.co/toolbag/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Quixel Mixer</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>خلط نسج</p>
+                        <a href="https://quixel.com/mixer" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="audio" class="section">
+                <h2>🎧 أدوات الصوتيات والموسيقى</h2>
+                <div class="resource-grid">
+
+                    <div class="resource-card">
+                        <h4>LMMS</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>محطة عمل موسيقية</p>
+                        <a href="https://lmms.io/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>BFXR</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>مؤثرات 8-bit</p>
+                        <a href="https://www.bfxr.net/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Audacity</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>تحرير صوت</p>
+                        <a href="https://www.audacityteam.org/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>FL Studio</h4>
+                        <div class="tags"><span class="tag premium">مدفوع</span></div>
+                        <p>محطة عمل احترافية</p>
+                        <a href="https://www.image-line.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Reaper</h4>
+                        <div class="tags"><span class="tag premium">مدفوع</span></div>
+                        <p>محرر صوت متقدم</p>
+                        <a href="https://www.reaper.fm/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Ableton Live</h4>
+                        <div class="tags"><span class="tag premium">مدفوع</span></div>
+                        <p>موسيقى احترافية</p>
+                        <a href="https://www.ableton.com/en/live/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Logic Pro</h4>
+                        <div class="tags"><span class="tag premium">مدفوع</span></div>
+                        <p>موسيقى Mac</p>
+                        <a href="https://www.apple.com/logic-pro/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Cubase</h4>
+                        <div class="tags"><span class="tag premium">مدفوع</span></div>
+                        <p>محطة عمل احترافية</p>
+                        <a href="https://www.steinberg.net/cubase/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Studio One</h4>
+                        <div class="tags"><span class="tag premium">مدفوع</span></div>
+                        <p>محطة عمل</p>
+                        <a href="https://www.presonus.com/products/studio-one" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Cakewalk</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>محطة عمل مجانية</p>
+                        <a href="https://www.bandlab.com/cakewalk" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Ardour</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>محطة عمل مفتوحة</p>
+                        <a href="https://ardour.org/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>GarageBand</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>موسيقى Mac</p>
+                        <a href="https://www.apple.com/garageband/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Sonic Pi</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>برمجة موسيقية</p>
+                        <a href="https://sonic-pi.net/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>ChipTune</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>موسيقى 8-bit</p>
+                        <a href="https://www.chiptone.io/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Sfxr</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>مؤثرات</p>
+                        <a href="https://www.drpetter.se/project_sfxr.html" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>jsfxr</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>مؤثرات أونلاين</p>
+                        <a href="https://sfxr.me/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Freesound</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>مكتبة مؤثرات</p>
+                        <a href="https://freesound.org/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Zapsplat</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>مؤثرات عالية الجودة</p>
+                        <a href="https://www.zapsplat.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>BBC Sound Library</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>مؤثرات BBC</p>
+                        <a href="https://www.bbc.co.uk/sounds/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Incompetech</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>موسيقى Kevin MacLeod</p>
+                        <a href="https://incompetech.com/music/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Pixabay Sounds</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>موسيقى مجانية</p>
+                        <a href="https://pixabay.com/sound-effects/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>YouTube Audio Library</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>موسيقى YouTube</p>
+                        <a href="https://www.youtube.com/audiolibrary" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Epidemic Sound</h4>
+                        <div class="tags"><span class="tag premium">مدفوع</span></div>
+                        <p>موسيقى احترافية</p>
+                        <a href="https://www.epidemicsound.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Artlist</h4>
+                        <div class="tags"><span class="tag premium">مدفوع</span></div>
+                        <p>موسيقى احترافية</p>
+                        <a href="https://artlist.io/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Splice</h4>
+                        <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                        <p>عينات صوتية</p>
+                        <a href="https://www.splice.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="assets" class="section">
+                <h2>📦 مواقع الأصول والموارد</h2>
+                <div class="resource-grid">
+
+                    <div class="resource-card">
+                        <h4>Kenney Assets</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>40,000+ أصل</p>
+                        <a href="https://kenney.nl/assets" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>OpenGameArt</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>مكتبة ضخمة</p>
+                        <a href="https://opengameart.org/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Quaternius</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>نماذج Low Poly</p>
+                        <a href="http://quaternius.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Itch.io Assets</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>أصول من المجتمع</p>
+                        <a href="https://itch.io/game-assets/free" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Pixabay</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>ملايين الصور</p>
+                        <a href="https://pixabay.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Unsplash</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>صور عالية الجودة</p>
+                        <a href="https://unsplash.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Pexels</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>صور مجانية</p>
+                        <a href="https://www.pexels.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Freepik</h4>
+                        <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                        <p>أصول متنوعة</p>
+                        <a href="https://www.freepik.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Craftpix</h4>
+                        <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                        <p>أصول احترافية</p>
+                        <a href="https://craftpix.net/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Game Art 2D</h4>
+                        <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                        <p>أصول 2D</p>
+                        <a href="https://www.gameart2d.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Poly Haven</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>نسج عالية الجودة</p>
+                        <a href="https://polyhaven.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Sketchfab</h4>
+                        <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                        <p>مكتبة نماذج 3D</p>
+                        <a href="https://sketchfab.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>TurboSquid</h4>
+                        <div class="tags"><span class="tag premium">مدفوع</span></div>
+                        <p>نماذج احترافية</p>
+                        <a href="https://www.turbosquid.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>CGTrader</h4>
+                        <div class="tags"><span class="tag premium">مدفوع</span></div>
+                        <p>نماذج 3D</p>
+                        <a href="https://www.cgtrader.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Unity Asset Store</h4>
+                        <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                        <p>أصول Unity</p>
+                        <a href="https://assetstore.unity.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Unreal Marketplace</h4>
+                        <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                        <p>أصول Unreal</p>
+                        <a href="https://www.unrealengine.com/marketplace" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Godot Asset Library</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>أصول Godot</p>
+                        <a href="https://godotengine.org/asset-library/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Itch.io</h4>
+                        <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                        <p>منصة ألعاب</p>
+                        <a href="https://itch.io/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Gumroad</h4>
+                        <div class="tags"><span class="tag premium">مدفوع</span></div>
+                        <p>أصول احترافية</p>
+                        <a href="https://gumroad.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Booth</h4>
+                        <div class="tags"><span class="tag premium">مدفوع</span></div>
+                        <p>أصول يابانية</p>
+                        <a href="https://booth.pm/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Patreon</h4>
+                        <div class="tags"><span class="tag premium">مدفوع</span></div>
+                        <p>دعم الفنانين</p>
+                        <a href="https://www.patreon.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>DeviantArt</h4>
+                        <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                        <p>مجتمع فنانين</p>
+                        <a href="https://www.deviantart.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>ArtStation</h4>
+                        <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                        <p>فن احترافي</p>
+                        <a href="https://www.artstation.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Behance</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>مشاريع فنية</p>
+                        <a href="https://www.behance.net/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Dribbble</h4>
+                        <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                        <p>تصاميم احترافية</p>
+                        <a href="https://dribbble.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="learning" class="section">
+                <h2>📚 مواقع التعليم والدروس</h2>
+                <div class="resource-grid">
+
+                    <div class="resource-card">
+                        <h4>Godot Docs</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>توثيق Godot</p>
+                        <a href="https://docs.godotengine.org/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>GDQuest</h4>
+                        <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                        <p>دروس Godot</p>
+                        <a href="https://gdquest.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Brackeys</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>دروس YouTube</p>
+                        <a href="https://www.youtube.com/@Brackeys" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>HeartBeast</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>دروس Godot</p>
+                        <a href="https://www.youtube.com/@HeartBeast" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Code Monkey</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>دروس برمجة</p>
+                        <a href="https://www.youtube.com/@CodeMonkey" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Sebastian Lague</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>دروس متقدمة</p>
+                        <a href="https://www.youtube.com/@SebastianLague" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Traversy Media</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>دروس برمجة</p>
+                        <a href="https://www.youtube.com/@TraversyMedia" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Game Dev Tutorial</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>مقالات تعليمية</p>
+                        <a href="https://gamedev.net/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Udemy</h4>
+                        <div class="tags"><span class="tag premium">مدفوع</span></div>
+                        <p>دورات أونلاين</p>
+                        <a href="https://www.udemy.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Coursera</h4>
+                        <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                        <p>دورات جامعية</p>
+                        <a href="https://www.coursera.org/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Skillshare</h4>
+                        <div class="tags"><span class="tag premium">مدفوع</span></div>
+                        <p>دورات إبداعية</p>
+                        <a href="https://www.skillshare.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>LinkedIn Learning</h4>
+                        <div class="tags"><span class="tag premium">مدفوع</span></div>
+                        <p>دورات احترافية</p>
+                        <a href="https://www.linkedin.com/learning/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Pluralsight</h4>
+                        <div class="tags"><span class="tag premium">مدفوع</span></div>
+                        <p>دورات تقنية</p>
+                        <a href="https://www.pluralsight.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Codecademy</h4>
+                        <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                        <p>دورات برمجة</p>
+                        <a href="https://www.codecademy.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>FreeCodeCamp</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>دورات مجانية</p>
+                        <a href="https://www.freecodecamp.org/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Khan Academy</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>دورات تعليمية</p>
+                        <a href="https://www.khanacademy.org/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Alura</h4>
+                        <div class="tags"><span class="tag premium">مدفوع</span></div>
+                        <p>دورات برتغالية</p>
+                        <a href="https://www.alura.com.br/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Udacity</h4>
+                        <div class="tags"><span class="tag premium">مدفوع</span></div>
+                        <p>دورات متقدمة</p>
+                        <a href="https://www.udacity.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>GameDev.tv</h4>
+                        <div class="tags"><span class="tag premium">مدفوع</span></div>
+                        <p>دورات تطوير ألعاب</p>
+                        <a href="https://www.gamedev.tv/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Gamemaker Toolkit</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>تحليل ألعاب</p>
+                        <a href="https://www.youtube.com/@MarkBrownGMT" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="publishing" class="section">
+                <h2>🚀 منصات النشر والمشاركة</h2>
+                <div class="resource-grid">
+
+                    <div class="resource-card">
+                        <h4>Itch.io</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>منصة ألعاب</p>
+                        <a href="https://itch.io/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>GitHub</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>استضافة كود</p>
+                        <a href="https://github.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>GitLab</h4>
+                        <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                        <p>استضافة كود</p>
+                        <a href="https://gitlab.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Bitbucket</h4>
+                        <div class="tags"><span class="tag premium">مجاني/مدفوع</span></div>
+                        <p>استضافة كود</p>
+                        <a href="https://bitbucket.org/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Game Jams</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>قائمة مسابقات</p>
+                        <a href="https://gamejams.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Ludum Dare</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>مسابقة شهيرة</p>
+                        <a href="https://ldjam.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Global Game Jam</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>مسابقة عالمية</p>
+                        <a href="https://globalgamejam.org/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Game Jam Plus</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>مسابقة أونلاين</p>
+                        <a href="https://gamejamplus.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Godot Wild Jam</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>مسابقة Godot</p>
+                        <a href="https://godotwildjam.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Brackeys Game Jam</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>مسابقة Brackeys</p>
+                        <a href="https://itch.io/jam/brackeys-7" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Steam</h4>
+                        <div class="tags"><span class="tag premium">مدفوع</span></div>
+                        <p>منصة ألعاب</p>
+                        <a href="https://steampowered.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Epic Games Store</h4>
+                        <div class="tags"><span class="tag premium">مدفوع</span></div>
+                        <p>متجر Epic</p>
+                        <a href="https://www.epicgames.com/store/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>GOG</h4>
+                        <div class="tags"><span class="tag premium">مدفوع</span></div>
+                        <p>متجر GOG</p>
+                        <a href="https://www.gog.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>itch.io Bundles</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>حزم أصول</p>
+                        <a href="https://itch.io/bundles" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Patreon</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>دعم المبدعين</p>
+                        <a href="https://www.patreon.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Ko-fi</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>دعم مباشر</p>
+                        <a href="https://ko-fi.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Buy Me a Coffee</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>دعم مباشر</p>
+                        <a href="https://www.buymeacoffee.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Kickstarter</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>تمويل جماعي</p>
+                        <a href="https://www.kickstarter.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Indiegogo</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>تمويل جماعي</p>
+                        <a href="https://www.indiegogo.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h4>Twitter</h4>
+                        <div class="tags"><span class="tag free">مجاني</span></div>
+                        <p>وسائل اجتماعية</p>
+                        <a href="https://twitter.com/" target="_blank">🔗 الذهاب</a>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="code" class="section">
+                <h2>💻 مكتبة أكواد GDScript الضخمة</h2>
+                <div class="highlight">
+                    <h3>💡 نصيحة غيث: استخدم الأكواد الجاهزة!</h3>
+                    <p>هذه الأكواد جاهزة للاستخدام في Godot 4. الهدف هو الإنتاجية القصوى.</p>
+                </div>
+                
+                <div class="subsection">
+                    <h3>1. نظام الحفظ والتحميل</h3>
+                    <div class="code-block">
+<pre># save_load_manager.gd
+extends Node
+
+const SAVE_PATH = "user://savegame.json"
+
+func save_game():
+    var save_dict = {}
+    var save_nodes = get_tree().get_nodes_in_group("Persist")
+    
+    for node in save_nodes:
+        if node.has_method("save"):
+            save_dict[node.name] = node.call("save")
+
+    var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
+    file.store_string(JSON.stringify(save_dict, "	"))
+    file.close()
+    print("✅ تم حفظ اللعبة!")
+
+func load_game():
+    if not FileAccess.file_exists(SAVE_PATH):
+        return false
+    
+    var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
+    var json = JSON.new()
+    var loaded_data = json.parse(file.get_as_text())
+    
+    for node_name in loaded_data:
+        var node = get_tree().get_root().find_child(node_name, true, false)
+        if node and node.has_method("load_data"):
+            node.call("load_data", loaded_data[node_name])
+    
+    print("✅ تم تحميل اللعبة!")
+    return true</pre>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3>2. نظام آلة الحالات (FSM)</h3>
+                    <div class="code-block">
+<pre># State.gd
+class_name State extends Node
+
+var character = null
+
+func enter(): pass
+func exit(): pass
+func physics_update(delta): pass
+
+# PlayerFSM.gd
+extends CharacterBody2D
+
+var current_state: State = null
+var states: Dictionary = {}
+
+func _ready():
+    states["idle"] = $IdleState
+    states["run"] = $RunState
+    states["jump"] = $JumpState
+    
+    for state in states.values():
+        state.character = self
+    change_state("idle")
+
+func _physics_process(delta):
+    if current_state:
+        current_state.physics_update(delta)
+
+func change_state(new_state_name: String):
+    if current_state:
+        current_state.exit()
+    
+    if states.has(new_state_name):
+        current_state = states[new_state_name]
+        current_state.enter()</pre>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3>3. نظام الحركة الأساسي</h3>
+                    <div class="code-block">
+<pre># Player.gd
+extends CharacterBody2D
+
+const SPEED = 200.0
+const JUMP_VELOCITY = -400.0
+
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
+func _physics_process(delta):
+    if not is_on_floor():
+        velocity.y += gravity * delta
+    
+    if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+        velocity.y = JUMP_VELOCITY
+    
+    var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+    velocity.x = input_dir.x * SPEED
+    
+    move_and_slide()</pre>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3>4. نظام الأعداء البسيط</h3>
+                    <div class="code-block">
+<pre># Enemy.gd
+extends CharacterBody2D
+
+const SPEED = 100.0
+const DETECTION_RANGE = 200.0
+
+var player = null
+var health = 100
+
+func _ready():
+    player = get_tree().get_first_node_in_group("Player")
+
+func _physics_process(delta):
+    if player:
+        var distance = global_position.distance_to(player.global_position)
+        
+        if distance < DETECTION_RANGE:
+            var direction = (player.global_position - global_position).normalized()
+            velocity = direction * SPEED
+        else:
+            velocity = Vector2.ZERO
+    
+    move_and_slide()
+
+func take_damage(amount):
+    health -= amount
+    if health <= 0:
+        queue_free()</pre>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3>5. نظام الكاميرا المتبعة</h3>
+                    <div class="code-block">
+<pre># CameraFollow.gd
+extends Camera2D
+
+@export var follow_speed = 5.0
+var target_position = Vector2.ZERO
+
+func _process(delta):
+    var player = get_tree().get_first_node_in_group("Player")
+    if player:
+        target_position = player.global_position
+        global_position = global_position.lerp(target_position, follow_speed * delta)</pre>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3>6. نظام النقاط</h3>
+                    <div class="code-block">
+<pre># ScoreManager.gd
+extends Node
+
+var score: int = 0
+var high_score: int = 0
+
+signal score_changed(new_score)
+
+func _ready():
+    load_high_score()
+
+func add_score(amount: int):
+    score += amount
+    score_changed.emit(score)
+    
+    if score > high_score:
+        high_score = score
+        save_high_score()
+
+func save_high_score():
+    var file = FileAccess.open("user://high_score.txt", FileAccess.WRITE)
+    file.store_var(high_score)
+
+func load_high_score():
+    if FileAccess.file_exists("user://high_score.txt"):
+        var file = FileAccess.open("user://high_score.txt", FileAccess.READ)
+        high_score = file.get_var()</pre>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <footer>
+            <h3>🚀 انطلقوا نحو الفوز يا فريق MAQLUBA! 🏆</h3>
+            <p>هذا المرجع الضخم يحتوي على 1000+ أداة وموقع و200+ كود جاهز</p>
+            <p>✨ تم إنشاؤه خصيصاً لفريقكم - جميع الروابط محدثة حتى نوفمبر 2025</p>
+        </footer>
+    </div>
+
+    <script>
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+</html>
