@@ -1,1750 +1,0 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مرجع TEAM MAQLUBA - Game Jam Resources</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #333;
-            line-height: 1.6;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            overflow: hidden;
-        }
-
-        header {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-            padding: 40px;
-            text-align: center;
-        }
-
-        header h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        header p {
-            font-size: 1.2em;
-            opacity: 0.9;
-        }
-
-        .team-info {
-            background: #f8f9fa;
-            padding: 30px;
-            border-bottom: 3px solid #667eea;
-        }
-
-        .team-info h2 {
-            color: #1e3c72;
-            margin-bottom: 20px;
-            font-size: 2em;
-        }
-
-        .team-members {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .member {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            border-right: 4px solid #667eea;
-        }
-
-        .member h3 {
-            color: #2a5298;
-            margin-bottom: 10px;
-        }
-
-        .member p {
-            color: #666;
-            font-size: 0.95em;
-        }
-
-        nav {
-            background: #2c3e50;
-            padding: 20px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            padding: 10px 20px;
-            background: #34495e;
-            border-radius: 5px;
-            transition: all 0.3s;
-            font-weight: bold;
-        }
-
-        nav a:hover {
-            background: #667eea;
-            transform: translateY(-2px);
-        }
-
-        .content {
-            padding: 40px;
-        }
-
-        .section {
-            margin-bottom: 60px;
-        }
-
-        .section h2 {
-            color: #1e3c72;
-            font-size: 2.5em;
-            margin-bottom: 30px;
-            padding-bottom: 15px;
-            border-bottom: 3px solid #667eea;
-        }
-
-        .subsection {
-            margin-bottom: 40px;
-        }
-
-        .subsection h3 {
-            color: #2a5298;
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            padding-right: 15px;
-            border-right: 5px solid #667eea;
-        }
-
-        .resource-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .resource-card {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: all 0.3s;
-            border-right: 4px solid #667eea;
-        }
-
-        .resource-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
-        }
-
-        .resource-card h4 {
-            color: #1e3c72;
-            font-size: 1.3em;
-            margin-bottom: 10px;
-        }
-
-        .resource-card p {
-            color: #666;
-            margin-bottom: 15px;
-            font-size: 0.95em;
-        }
-
-        .resource-card .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 15px;
-        }
-
-        .tag {
-            background: #667eea;
-            color: white;
-            padding: 5px 12px;
-            border-radius: 15px;
-            font-size: 0.85em;
-            font-weight: bold;
-        }
-
-        .tag.role {
-            background: #e74c3c;
-        }
-
-        .tag.type {
-            background: #27ae60;
-        }
-
-        .resource-card a {
-            display: inline-block;
-            background: #667eea;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: all 0.3s;
-            font-weight: bold;
-        }
-
-        .resource-card a:hover {
-            background: #2a5298;
-            transform: scale(1.05);
-        }
-
-        .quick-tips {
-            background: #fff3cd;
-            border-right: 5px solid #ffc107;
-            padding: 25px;
-            border-radius: 10px;
-            margin: 30px 0;
-        }
-
-        .quick-tips h3 {
-            color: #856404;
-            margin-bottom: 15px;
-        }
-
-        .quick-tips ul {
-            list-style-position: inside;
-            color: #856404;
-        }
-
-        .quick-tips li {
-            margin-bottom: 10px;
-        }
-
-        footer {
-            background: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 30px;
-            margin-top: 40px;
-        }
-
-        .search-box {
-            margin: 30px 0;
-            text-align: center;
-        }
-
-        .search-box input {
-            width: 60%;
-            padding: 15px;
-            font-size: 1.1em;
-            border: 2px solid #667eea;
-            border-radius: 25px;
-            text-align: center;
-        }
-
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2em;
-            }
-
-            .resource-grid {
-                grid-template-columns: 1fr;
-            }
-
-            nav ul {
-                flex-direction: column;
-            }
-        }
-
-        .highlight {
-            background: #d4edda;
-            border-right: 5px solid #28a745;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
-        }
-
-        .highlight h4 {
-            color: #155724;
-            margin-bottom: 10px;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <header>
-            <h1>🎮 مرجع TEAM MAQLUBA الشامل 🎮</h1>
-            <p>دليلك الكامل للفوز في Game Jam - Godot Edition</p>
-            <p style="margin-top: 10px; font-size: 0.9em;">📅 13-15 نوفمبر 2025</p>
-        </header>
-
-        <div class="team-info">
-            <h2>👥 فريق مقلوبة - TEAM MAQLUBA</h2>
-            <div class="team-members">
-                <div class="member">
-                    <h3>👨‍💻 غيث</h3>
-                    <p><strong>الدور:</strong> مبرمج، عامل Godot، وإدارة</p>
-                    <p><strong>المسؤوليات:</strong> البرمجة الأساسية، GDScript/C#، إدارة المشروع</p>
-                </div>
-                <div class="member">
-                    <h3>🎨 الطيب</h3>
-                    <p><strong>الدور:</strong> مصمم، مفكر، وعامل Godot</p>
-                    <p><strong>المسؤوليات:</strong> تصميم اللعبة، الأفكار الإبداعية، Level Design</p>
-                </div>
-                <div class="member">
-                    <h3>✏️ يوسف</h3>
-                    <p><strong>الدور:</strong> رسام، موثق، وعامل Godot</p>
-                    <p><strong>المسؤوليات:</strong> الرسومات، الأصول البصرية، التوثيق</p>
-                </div>
-                <div class="member">
-                    <h3>🎵 عمر</h3>
-                    <p><strong>الدور:</strong> مسؤول الصوتيات، التنظيم</p>
-                    <p><strong>المسؤوليات:</strong> الموسيقى، المؤثرات الصوتية، التنسيق</p>
-                </div>
-            </div>
-        </div>
-
-        <nav>
-            <ul>
-                <li><a href="#ai-tools">🤖 أدوات AI</a></li>
-                <li><a href="#godot">🎮 Godot</a></li>
-                <li><a href="#art">🎨 الرسم والتصميم</a></li>
-                <li><a href="#audio">🎵 الصوتيات</a></li>
-                <li><a href="#assets">📦 الأصول المجانية</a></li>
-                <li><a href="#tutorials">📚 دروس وفيديوهات</a></li>
-                <li><a href="#tools">🛠️ أدوات مساعدة</a></li>
-                <li><a href="#tips">💡 نصائح للفوز</a></li>
-            </ul>
-        </nav>
-
-        <div class="content">
-            <!-- AI Tools Section -->
-            <section id="ai-tools" class="section">
-                <h2>🤖 أدوات الذكاء الاصطناعي</h2>
-                
-                <div class="highlight">
-                    <h4>⚡ لماذا AI مهم في Game Jam؟</h4>
-                    <p>الذكاء الاصطناعي يوفر لكم الوقت والجهد في إنشاء الأصول والبرمجة، مما يتيح لكم التركيز على الإبداع والتصميم!</p>
-                </div>
-
-                <div class="subsection">
-                    <h3>👨‍💻 للمبرمجين (غيث)</h3>
-                    <div class="resource-grid">
-                        <div class="resource-card">
-                            <h4>GitHub Copilot</h4>
-                            <div class="tags">
-                                <span class="tag role">غيث</span>
-                                <span class="tag type">برمجة</span>
-                            </div>
-                            <p>مساعد برمجة ذكي يقترح الكود تلقائياً. يدعم GDScript وC#. مثالي للبرمجة السريعة في Game Jam.</p>
-                            <a href="https://github.com/features/copilot" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>ChatGPT</h4>
-                            <div class="tags">
-                                <span class="tag role">الجميع</span>
-                                <span class="tag type">برمجة + أفكار</span>
-                            </div>
-                            <p>يساعد في كتابة الكود، حل المشاكل، وتوليد أفكار اللعبة. استخدمه لشرح الأخطاء وإيجاد حلول سريعة.</p>
-                            <a href="https://chat.openai.com/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Claude AI</h4>
-                            <div class="tags">
-                                <span class="tag role">غيث</span>
-                                <span class="tag type">برمجة</span>
-                            </div>
-                            <p>بديل قوي لـ ChatGPT، ممتاز في فهم السياق وكتابة أكواد معقدة. يدعم رفع ملفات الكود.</p>
-                            <a href="https://claude.ai/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Tabnine</h4>
-                            <div class="tags">
-                                <span class="tag role">غيث</span>
-                                <span class="tag type">برمجة</span>
-                            </div>
-                            <p>مساعد AI للبرمجة يعمل مع معظم محررات النصوص. نسخة مجانية متاحة.</p>
-                            <a href="https://www.tabnine.com/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="subsection">
-                    <h3>🎨 للمصممين والرسامين (الطيب + يوسف)</h3>
-                    <div class="resource-grid">
-                        <div class="resource-card">
-                            <h4>DALL-E 3</h4>
-                            <div class="tags">
-                                <span class="tag role">يوسف</span>
-                                <span class="tag type">رسومات</span>
-                            </div>
-                            <p>توليد صور عالية الجودة من النص. مثالي لإنشاء concept art وأفكار بصرية.</p>
-                            <a href="https://openai.com/dall-e-3" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Midjourney</h4>
-                            <div class="tags">
-                                <span class="tag role">يوسف</span>
-                                <span class="tag type">رسومات</span>
-                            </div>
-                            <p>أداة قوية لتوليد صور فنية احترافية. يعمل عبر Discord. مثالي للـ concept art.</p>
-                            <a href="https://www.midjourney.com/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Stable Diffusion</h4>
-                            <div class="tags">
-                                <span class="tag role">يوسف</span>
-                                <span class="tag type">رسومات</span>
-                            </div>
-                            <p>مولد صور مفتوح المصدر. يمكن تشغيله محلياً أو عبر الإنترنت مجاناً.</p>
-                            <a href="https://stablediffusionweb.com/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Recraft AI</h4>
-                            <div class="tags">
-                                <span class="tag role">يوسف</span>
-                                <span class="tag type">أصول ألعاب</span>
-                            </div>
-                            <p>مولد أصول ألعاب مجاني. ينشئ sprites، textures، وشخصيات بأنماط متنوعة.</p>
-                            <a href="https://www.recraft.ai/generate/game-assets" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>PixelLab AI</h4>
-                            <div class="tags">
-                                <span class="tag role">يوسف</span>
-                                <span class="tag type">Pixel Art</span>
-                            </div>
-                            <p>مولد pixel art بالذكاء الاصطناعي. مثالي للألعاب الريترو.</p>
-                            <a href="https://www.pixellab.ai/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Layer AI</h4>
-                            <div class="tags">
-                                <span class="tag role">يوسف</span>
-                                <span class="tag type">أصول ألعاب</span>
-                            </div>
-                            <p>منصة احترافية لإنشاء أصول الألعاب بالذكاء الاصطناعي. تدعم 3D و2D.</p>
-                            <a href="https://www.layer.ai/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Ludo AI</h4>
-                            <div class="tags">
-                                <span class="tag role">الطيب</span>
-                                <span class="tag type">تصميم ألعاب</span>
-                            </div>
-                            <p>مساعد AI لتصميم الألعاب. يساعد في توليد أفكار، mechanics، وقصص.</p>
-                            <a href="https://ludo.ai/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Remove.bg</h4>
-                            <div class="tags">
-                                <span class="tag role">يوسف</span>
-                                <span class="tag type">معالجة صور</span>
-                            </div>
-                            <p>إزالة خلفية الصور تلقائياً بالذكاء الاصطناعي. مجاني وسريع.</p>
-                            <a href="https://www.remove.bg/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="subsection">
-                    <h3>🎵 للصوتيات (عمر)</h3>
-                    <div class="resource-grid">
-                        <div class="resource-card">
-                            <h4>ElevenLabs Sound Effects</h4>
-                            <div class="tags">
-                                <span class="tag role">عمر</span>
-                                <span class="tag type">مؤثرات صوتية</span>
-                            </div>
-                            <p>توليد مؤثرات صوتية من النص باستخدام AI. مجاني للاستخدام الشخصي.</p>
-                            <a href="https://elevenlabs.io/sound-effects" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>SFX Engine</h4>
-                            <div class="tags">
-                                <span class="tag role">عمر</span>
-                                <span class="tag type">مؤثرات صوتية</span>
-                            </div>
-                            <p>مولد مؤثرات صوتية مجاني بالذكاء الاصطناعي. سهل الاستخدام.</p>
-                            <a href="https://sfxengine.com/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Suno AI</h4>
-                            <div class="tags">
-                                <span class="tag role">عمر</span>
-                                <span class="tag type">موسيقى</span>
-                            </div>
-                            <p>توليد موسيقى كاملة من النص. يمكن إنشاء موسيقى خلفية للعبة بسرعة.</p>
-                            <a href="https://suno.ai/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Soundraw</h4>
-                            <div class="tags">
-                                <span class="tag role">عمر</span>
-                                <span class="tag type">موسيقى</span>
-                            </div>
-                            <p>مولد موسيقى AI قابل للتخصيص. يمكن التحكم في المزاج والإيقاع.</p>
-                            <a href="https://soundraw.io/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Adobe Firefly Audio</h4>
-                            <div class="tags">
-                                <span class="tag role">عمر</span>
-                                <span class="tag type">صوتيات</span>
-                            </div>
-                            <p>أداة Adobe لتوليد الصوتيات بالذكاء الاصطناعي.</p>
-                            <a href="https://www.adobe.com/products/firefly/features/sound-effect-generator.html" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Godot Section -->
-            <section id="godot" class="section">
-                <h2>🎮 موارد Godot Engine</h2>
-                
-                <div class="highlight">
-                    <h4>📌 معلومات مهمة</h4>
-                    <p>المسابقة تتطلب استخدام Godot Engine بشكل إلزامي. تأكدوا من تحميل أحدث نسخة مستقرة!</p>
-                </div>
-
-                <div class="subsection">
-                    <h3>🔧 الأدوات الأساسية</h3>
-                    <div class="resource-grid">
-                        <div class="resource-card">
-                            <h4>Godot Engine</h4>
-                            <div class="tags">
-                                <span class="tag role">الجميع</span>
-                                <span class="tag type">محرك ألعاب</span>
-                            </div>
-                            <p>محرك الألعاب المطلوب للمسابقة. حملوا النسخة المستقرة الأحدث (4.x أو 3.x).</p>
-                            <a href="https://godotengine.org/download/" target="_blank">🔗 تحميل Godot</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Godot Documentation</h4>
-                            <div class="tags">
-                                <span class="tag role">الجميع</span>
-                                <span class="tag type">توثيق</span>
-                            </div>
-                            <p>التوثيق الرسمي الكامل لـ Godot. مرجع أساسي لكل شيء.</p>
-                            <a href="https://docs.godotengine.org/" target="_blank">🔗 الذهاب للتوثيق</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Godot Asset Library</h4>
-                            <div class="tags">
-                                <span class="tag role">الجميع</span>
-                                <span class="tag type">إضافات</span>
-                            </div>
-                            <p>مكتبة الإضافات والأدوات المجانية لـ Godot. تحتوي على plugins مفيدة.</p>
-                            <a href="https://godotengine.org/asset-library/asset" target="_blank">🔗 تصفح المكتبة</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Godot Shaders</h4>
-                            <div class="tags">
-                                <span class="tag role">غيث + يوسف</span>
-                                <span class="tag type">Shaders</span>
-                            </div>
-                            <p>مكتبة shaders جاهزة للاستخدام في Godot. توفر تأثيرات بصرية رائعة.</p>
-                            <a href="https://godotshaders.com/" target="_blank">🔗 تصفح Shaders</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Godot Game Template</h4>
-                            <div class="tags">
-                                <span class="tag role">غيث</span>
-                                <span class="tag type">قالب</span>
-                            </div>
-                            <p>قالب جاهز للألعاب مع menus وإعدادات. يوفر الوقت في البداية.</p>
-                            <a href="https://github.com/Maaack/Godot-Game-Template" target="_blank">🔗 GitHub</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Aseprite Wizard</h4>
-                            <div class="tags">
-                                <span class="tag role">يوسف</span>
-                                <span class="tag type">استيراد</span>
-                            </div>
-                            <p>إضافة Godot لاستيراد ملفات Aseprite مباشرة مع الأنيميشن.</p>
-                            <a href="https://github.com/viniciusgerevini/godot-aseprite-wizard" target="_blank">🔗 GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="subsection">
-                    <h3>📊 خدمات Leaderboards</h3>
-                    <div class="resource-grid">
-                        <div class="resource-card">
-                            <h4>SilentWolf</h4>
-                            <div class="tags">
-                                <span class="tag role">غيث</span>
-                                <span class="tag type">Leaderboard</span>
-                            </div>
-                            <p>خدمة leaderboards مخصصة لـ Godot. سهلة التكامل.</p>
-                            <a href="https://silentwolf.com/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Dreamlo</h4>
-                            <div class="tags">
-                                <span class="tag role">غيث</span>
-                                <span class="tag type">Leaderboard</span>
-                            </div>
-                            <p>خدمة leaderboards بسيطة ومجانية. تعمل مع أي محرك.</p>
-                            <a href="https://www.dreamlo.com/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Art Tools Section -->
-            <section id="art" class="section">
-                <h2>🎨 أدوات الرسم والتصميم</h2>
-
-                <div class="subsection">
-                    <h3>🖼️ برامج الرسم العامة</h3>
-                    <div class="resource-grid">
-                        <div class="resource-card">
-                            <h4>Krita</h4>
-                            <div class="tags">
-                                <span class="tag role">يوسف</span>
-                                <span class="tag type">رسم</span>
-                            </div>
-                            <p>برنامج رسم مجاني ومفتوح المصدر. ممتاز للرسم الرقمي والأنيميشن.</p>
-                            <a href="https://krita.org/en/download/" target="_blank">🔗 تحميل</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>GIMP</h4>
-                            <div class="tags">
-                                <span class="tag role">يوسف</span>
-                                <span class="tag type">تحرير صور</span>
-                            </div>
-                            <p>بديل مجاني لـ Photoshop. قوي في تحرير الصور والرسم.</p>
-                            <a href="https://www.gimp.org/downloads/" target="_blank">🔗 تحميل</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Paint.NET</h4>
-                            <div class="tags">
-                                <span class="tag role">يوسف</span>
-                                <span class="tag type">تحرير صور</span>
-                            </div>
-                            <p>برنامج تحرير صور بسيط وسريع لـ Windows. مجاني.</p>
-                            <a href="https://www.getpaint.net/download.html" target="_blank">🔗 تحميل</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Inkscape</h4>
-                            <div class="tags">
-                                <span class="tag role">يوسف</span>
-                                <span class="tag type">Vector</span>
-                            </div>
-                            <p>برنامج رسم vector مجاني. بديل لـ Illustrator.</p>
-                            <a href="https://inkscape.org/release/" target="_blank">🔗 تحميل</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="subsection">
-                    <h3>🕹️ Pixel Art</h3>
-                    <div class="resource-grid">
-                        <div class="resource-card">
-                            <h4>Aseprite</h4>
-                            <div class="tags">
-                                <span class="tag role">يوسف</span>
-                                <span class="tag type">Pixel Art</span>
-                            </div>
-                            <p>أفضل برنامج لـ pixel art والأنيميشن. مدفوع لكن يمكن تجميعه مجاناً.</p>
-                            <a href="https://www.aseprite.org/" target="_blank">🔗 الموقع الرسمي</a>
-                            <a href="https://github.com/aseprite/aseprite/blob/main/INSTALL.md" target="_blank" style="margin-top: 10px;">🔗 تعليمات التجميع المجاني</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Piskel</h4>
-                            <div class="tags">
-                                <span class="tag role">يوسف</span>
-                                <span class="tag type">Pixel Art</span>
-                            </div>
-                            <p>أداة pixel art مجانية عبر الإنترنت. يمكن تحميلها للاستخدام بدون إنترنت.</p>
-                            <a href="https://www.piskelapp.com/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>GraphicsGale</h4>
-                            <div class="tags">
-                                <span class="tag role">يوسف</span>
-                                <span class="tag type">Pixel Art</span>
-                            </div>
-                            <p>برنامج pixel art مجاني. جيد للمبتدئين.</p>
-                            <a href="https://graphicsgale.com/us/download.html" target="_blank">🔗 تحميل</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Libresprite</h4>
-                            <div class="tags">
-                                <span class="tag role">يوسف</span>
-                                <span class="tag type">Pixel Art</span>
-                            </div>
-                            <p>نسخة مجانية ومفتوحة المصدر من Aseprite القديم.</p>
-                            <a href="https://libresprite.github.io/#!/downloads" target="_blank">🔗 تحميل</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="subsection">
-                    <h3>🎭 3D Art</h3>
-                    <div class="resource-grid">
-                        <div class="resource-card">
-                            <h4>Blender</h4>
-                            <div class="tags">
-                                <span class="tag role">يوسف</span>
-                                <span class="tag type">3D</span>
-                            </div>
-                            <p>برنامج 3D مجاني وقوي. يدعم النمذجة، الأنيميشن، والـ rendering.</p>
-                            <a href="https://www.blender.org/download/" target="_blank">🔗 تحميل</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Blockbench</h4>
-                            <div class="tags">
-                                <span class="tag role">يوسف</span>
-                                <span class="tag type">Low Poly 3D</span>
-                            </div>
-                            <p>محرر 3D بسيط للنماذج المنخفضة البوليجون. مثالي للألعاب.</p>
-                            <a href="https://www.blockbench.net/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Material Maker</h4>
-                            <div class="tags">
-                                <span class="tag role">يوسف</span>
-                                <span class="tag type">Textures</span>
-                            </div>
-                            <p>أداة لإنشاء textures إجرائية. مبنية على Godot!</p>
-                            <a href="https://www.materialmaker.org/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="subsection">
-                    <h3>🎬 Animation</h3>
-                    <div class="resource-grid">
-                        <div class="resource-card">
-                            <h4>OpenToonz</h4>
-                            <div class="tags">
-                                <span class="tag role">يوسف</span>
-                                <span class="tag type">أنيميشن 2D</span>
-                            </div>
-                            <p>برنامج أنيميشن احترافي مجاني. يدعم vector و raster.</p>
-                            <a href="https://opentoonz.github.io/e/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>DragonBones</h4>
-                            <div class="tags">
-                                <span class="tag role">يوسف</span>
-                                <span class="tag type">Skeletal Animation</span>
-                            </div>
-                            <p>أداة skeletal animation مجانية. بديل لـ Spine. يتكامل مع Godot.</p>
-                            <a href="https://docs.egret.com/dragonbones/en/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Rive</h4>
-                            <div class="tags">
-                                <span class="tag role">يوسف</span>
-                                <span class="tag type">أنيميشن</span>
-                            </div>
-                            <p>أداة أنيميشن حديثة عبر الإنترنت. مجانية للملفات العامة.</p>
-                            <a href="https://rive.app/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="subsection">
-                    <h3>🎨 أدوات مساعدة</h3>
-                    <div class="resource-grid">
-                        <div class="resource-card">
-                            <h4>Lospec Palette List</h4>
-                            <div class="tags">
-                                <span class="tag role">يوسف</span>
-                                <span class="tag type">ألوان</span>
-                            </div>
-                            <p>مجموعة ضخمة من palettes الألوان للألعاب. مثالية لـ pixel art.</p>
-                            <a href="https://lospec.com/palette-list" target="_blank">🔗 تصفح Palettes</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Coolors</h4>
-                            <div class="tags">
-                                <span class="tag role">يوسف</span>
-                                <span class="tag type">ألوان</span>
-                            </div>
-                            <p>مولد color palettes سريع وسهل. يساعد في اختيار الألوان المتناسقة.</p>
-                            <a href="https://coolors.co/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Figma</h4>
-                            <div class="tags">
-                                <span class="tag role">الطيب + يوسف</span>
-                                <span class="tag type">UI Design</span>
-                            </div>
-                            <p>أداة تصميم UI/UX عبر الإنترنت. مجانية للاستخدام الشخصي.</p>
-                            <a href="https://www.figma.com/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Audio Section -->
-            <section id="audio" class="section">
-                <h2>🎵 أدوات الصوتيات والموسيقى</h2>
-
-                <div class="subsection">
-                    <h3>🎹 إنشاء الموسيقى</h3>
-                    <div class="resource-grid">
-                        <div class="resource-card">
-                            <h4>LMMS</h4>
-                            <div class="tags">
-                                <span class="tag role">عمر</span>
-                                <span class="tag type">DAW</span>
-                            </div>
-                            <p>Digital Audio Workstation مجاني. بديل لـ FL Studio.</p>
-                            <a href="https://lmms.io/download/" target="_blank">🔗 تحميل</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>BeepBox</h4>
-                            <div class="tags">
-                                <span class="tag role">عمر</span>
-                                <span class="tag type">موسيقى 8-bit</span>
-                            </div>
-                            <p>مولد موسيقى 8-bit عبر الإنترنت. سريع وسهل للموسيقى الريترو.</p>
-                            <a href="https://www.beepbox.co/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Bosca Ceoil</h4>
-                            <div class="tags">
-                                <span class="tag role">عمر</span>
-                                <span class="tag type">موسيقى</span>
-                            </div>
-                            <p>برنامج موسيقى بسيط ومجاني. مثالي للمبتدئين في Game Jams.</p>
-                            <a href="https://boscaceoil.net/" target="_blank">🔗 تحميل</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>MilkyTracker</h4>
-                            <div class="tags">
-                                <span class="tag role">عمر</span>
-                                <span class="tag type">Tracker</span>
-                            </div>
-                            <p>Music tracker مجاني. للموسيقى الريترو والـ chiptune.</p>
-                            <a href="https://milkytracker.org/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="subsection">
-                    <h3>🔊 المؤثرات الصوتية</h3>
-                    <div class="resource-grid">
-                        <div class="resource-card">
-                            <h4>Audacity</h4>
-                            <div class="tags">
-                                <span class="tag role">عمر</span>
-                                <span class="tag type">تحرير صوت</span>
-                            </div>
-                            <p>محرر صوت مجاني وقوي. أساسي لتحرير المؤثرات الصوتية.</p>
-                            <a href="https://www.audacityteam.org/download/" target="_blank">🔗 تحميل</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>ChipTone</h4>
-                            <div class="tags">
-                                <span class="tag role">عمر</span>
-                                <span class="tag type">SFX</span>
-                            </div>
-                            <p>مولد مؤثرات صوتية 8-bit مجاني. سريع وسهل الاستخدام.</p>
-                            <a href="https://sfbgames.itch.io/chiptone" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>jsfxr</h4>
-                            <div class="tags">
-                                <span class="tag role">عمر</span>
-                                <span class="tag type">SFX</span>
-                            </div>
-                            <p>مولد مؤثرات صوتية عبر الإنترنت. مثالي للـ retro games.</p>
-                            <a href="https://sfxr.me/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>BFXR</h4>
-                            <div class="tags">
-                                <span class="tag role">عمر</span>
-                                <span class="tag type">SFX</span>
-                            </div>
-                            <p>نسخة محسنة من sfxr. يولد مؤثرات صوتية للألعاب.</p>
-                            <a href="https://www.bfxr.net/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Free Assets Section -->
-            <section id="assets" class="section">
-                <h2>📦 الأصول المجانية</h2>
-
-                <div class="highlight">
-                    <h4>⚠️ تنبيه مهم</h4>
-                    <p>تأكدوا دائماً من قراءة الترخيص (License) قبل استخدام أي أصل. بعض الأصول تتطلب الإشارة للمصدر (Attribution).</p>
-                </div>
-
-                <div class="subsection">
-                    <h3>🎨 أصول رسومية</h3>
-                    <div class="resource-grid">
-                        <div class="resource-card">
-                            <h4>Kenney Assets</h4>
-                            <div class="tags">
-                                <span class="tag role">يوسف</span>
-                                <span class="tag type">2D + 3D</span>
-                            </div>
-                            <p>أكبر مجموعة أصول ألعاب مجانية. جودة عالية وCC0 (مجاني تماماً).</p>
-                            <a href="https://kenney.nl/assets" target="_blank">🔗 تصفح الأصول</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>OpenGameArt</h4>
-                            <div class="tags">
-                                <span class="tag role">يوسف</span>
-                                <span class="tag type">2D + 3D</span>
-                            </div>
-                            <p>مكتبة ضخمة من أصول الألعاب المجانية. تحقق من الترخيص.</p>
-                            <a href="https://opengameart.org/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Itch.io Game Assets</h4>
-                            <div class="tags">
-                                <span class="tag role">يوسف</span>
-                                <span class="tag type">متنوع</span>
-                            </div>
-                            <p>آلاف الأصول المجانية والمدفوعة. فلتر "Free" للمجانية.</p>
-                            <a href="https://itch.io/game-assets/free" target="_blank">🔗 تصفح الأصول</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>GameArt2D Freebies</h4>
-                            <div class="tags">
-                                <span class="tag role">يوسف</span>
-                                <span class="tag type">2D</span>
-                            </div>
-                            <p>أصول 2D مجانية عالية الجودة. مثالية للألعاب.</p>
-                            <a href="https://www.gameart2d.com/freebies.html" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Game-Icons.net</h4>
-                            <div class="tags">
-                                <span class="tag role">يوسف</span>
-                                <span class="tag type">Icons</span>
-                            </div>
-                            <p>آلاف الأيقونات المجانية للألعاب. قابلة للتخصيص.</p>
-                            <a href="https://game-icons.net/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Poly Pizza</h4>
-                            <div class="tags">
-                                <span class="tag role">يوسف</span>
-                                <span class="tag type">3D Low Poly</span>
-                            </div>
-                            <p>نماذج 3D منخفضة البوليجون مجانية. مثالية للألعاب.</p>
-                            <a href="https://poly.pizza/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Quaternius 3D Assets</h4>
-                            <div class="tags">
-                                <span class="tag role">يوسف</span>
-                                <span class="tag type">3D</span>
-                            </div>
-                            <p>مجموعات 3D مجانية وCC0. جودة ممتازة.</p>
-                            <a href="http://quaternius.com/assets.html" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="subsection">
-                    <h3>🎵 أصول صوتية</h3>
-                    <div class="resource-grid">
-                        <div class="resource-card">
-                            <h4>Freesound</h4>
-                            <div class="tags">
-                                <span class="tag role">عمر</span>
-                                <span class="tag type">SFX</span>
-                            </div>
-                            <p>أكبر مكتبة مؤثرات صوتية مجانية. تحقق من الترخيص.</p>
-                            <a href="https://freesound.org/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Incompetech Music</h4>
-                            <div class="tags">
-                                <span class="tag role">عمر</span>
-                                <span class="tag type">موسيقى</span>
-                            </div>
-                            <p>موسيقى مجانية لـ Kevin MacLeod. تتطلب attribution.</p>
-                            <a href="https://incompetech.com/music/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Sonniss GDC Bundle</h4>
-                            <div class="tags">
-                                <span class="tag role">عمر</span>
-                                <span class="tag type">SFX</span>
-                            </div>
-                            <p>مجموعة ضخمة من المؤثرات الصوتية المجانية. احترافية جداً.</p>
-                            <a href="https://sonniss.com/gameaudiogdc" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Pixabay Sounds</h4>
-                            <div class="tags">
-                                <span class="tag role">عمر</span>
-                                <span class="tag type">SFX + موسيقى</span>
-                            </div>
-                            <p>مؤثرات صوتية وموسيقى مجانية. لا تتطلب attribution.</p>
-                            <a href="https://pixabay.com/sound-effects/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Bensound</h4>
-                            <div class="tags">
-                                <span class="tag role">عمر</span>
-                                <span class="tag type">موسيقى</span>
-                            </div>
-                            <p>موسيقى خلفية مجانية. تتطلب attribution للنسخة المجانية.</p>
-                            <a href="https://www.bensound.com/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>SoundImage</h4>
-                            <div class="tags">
-                                <span class="tag role">عمر</span>
-                                <span class="tag type">موسيقى + SFX</span>
-                            </div>
-                            <p>موسيقى ومؤثرات صوتية مجانية. مرتبة حسب المزاج.</p>
-                            <a href="https://soundimage.org/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="subsection">
-                    <h3>🖼️ Textures</h3>
-                    <div class="resource-grid">
-                        <div class="resource-card">
-                            <h4>CC0 Textures</h4>
-                            <div class="tags">
-                                <span class="tag role">يوسف</span>
-                                <span class="tag type">Textures</span>
-                            </div>
-                            <p>Textures عالية الجودة CC0. مجانية تماماً.</p>
-                            <a href="https://cc0textures.com/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>3D Textures</h4>
-                            <div class="tags">
-                                <span class="tag role">يوسف</span>
-                                <span class="tag type">Textures</span>
-                            </div>
-                            <p>Textures مجانية للاستخدام التجاري. جودة عالية.</p>
-                            <a href="https://3dtextures.me/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>ShareTextures</h4>
-                            <div class="tags">
-                                <span class="tag role">يوسف</span>
-                                <span class="tag type">Textures</span>
-                            </div>
-                            <p>مكتبة textures مجانية. PBR materials.</p>
-                            <a href="https://www.sharetextures.com/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="subsection">
-                    <h3>🔤 خطوط</h3>
-                    <div class="resource-grid">
-                        <div class="resource-card">
-                            <h4>Google Fonts</h4>
-                            <div class="tags">
-                                <span class="tag role">يوسف</span>
-                                <span class="tag type">خطوط</span>
-                            </div>
-                            <p>مئات الخطوط المجانية. سهلة الاستخدام.</p>
-                            <a href="https://fonts.google.com/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>DaFont</h4>
-                            <div class="tags">
-                                <span class="tag role">يوسف</span>
-                                <span class="tag type">خطوط</span>
-                            </div>
-                            <p>آلاف الخطوط المجانية. تحقق من الترخيص!</p>
-                            <a href="https://www.dafont.com/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Font Squirrel</h4>
-                            <div class="tags">
-                                <span class="tag role">يوسف</span>
-                                <span class="tag type">خطوط</span>
-                            </div>
-                            <p>خطوط مجانية للاستخدام التجاري. موثوقة.</p>
-                            <a href="https://www.fontsquirrel.com/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Tutorials Section -->
-            <section id="tutorials" class="section">
-                <h2>📚 دروس وفيديوهات تعليمية</h2>
-
-                <div class="subsection">
-                    <h3>🎓 دروس Godot الرسمية</h3>
-                    <div class="resource-grid">
-                        <div class="resource-card">
-                            <h4>Godot Docs - Your First 2D Game</h4>
-                            <div class="tags">
-                                <span class="tag role">الجميع</span>
-                                <span class="tag type">مبتدئ</span>
-                            </div>
-                            <p>درس رسمي لإنشاء أول لعبة 2D. خطوة بخطوة.</p>
-                            <a href="https://docs.godotengine.org/en/stable/getting_started/first_2d_game/index.html" target="_blank">🔗 الذهاب للدرس</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Godot Docs - Your First 3D Game</h4>
-                            <div class="tags">
-                                <span class="tag role">الجميع</span>
-                                <span class="tag type">مبتدئ</span>
-                            </div>
-                            <p>درس رسمي لإنشاء أول لعبة 3D.</p>
-                            <a href="https://docs.godotengine.org/en/stable/getting_started/first_3d_game/index.html" target="_blank">🔗 الذهاب للدرس</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Godot Step by Step</h4>
-                            <div class="tags">
-                                <span class="tag role">الجميع</span>
-                                <span class="tag type">مبتدئ</span>
-                            </div>
-                            <p>سلسلة دروس رسمية لتعلم Godot من الصفر.</p>
-                            <a href="https://docs.godotengine.org/en/stable/getting_started/step_by_step/index.html" target="_blank">🔗 الذهاب للدروس</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="subsection">
-                    <h3>📺 قنوات YouTube</h3>
-                    <div class="resource-grid">
-                        <div class="resource-card">
-                            <h4>GDQuest</h4>
-                            <div class="tags">
-                                <span class="tag role">الجميع</span>
-                                <span class="tag type">شامل</span>
-                            </div>
-                            <p>أفضل قناة لتعلم Godot. دروس احترافية ومجانية.</p>
-                            <a href="https://www.youtube.com/@GDQuest" target="_blank">🔗 القناة</a>
-                            <a href="https://gdquest.com/" target="_blank" style="margin-top: 10px;">🔗 الموقع</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Brackeys</h4>
-                            <div class="tags">
-                                <span class="tag role">الجميع</span>
-                                <span class="tag type">Game Dev</span>
-                            </div>
-                            <p>قناة شهيرة لتطوير الألعاب. دروس Unity لكن المفاهيم تنطبق على Godot.</p>
-                            <a href="https://www.youtube.com/@Brackeys" target="_blank">🔗 القناة</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>HeartBeast</h4>
-                            <div class="tags">
-                                <span class="tag role">الجميع</span>
-                                <span class="tag type">Godot</span>
-                            </div>
-                            <p>دروس Godot متنوعة. يركز على الألعاب 2D.</p>
-                            <a href="https://www.youtube.com/@uheartbeast" target="_blank">🔗 القناة</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Godotneers</h4>
-                            <div class="tags">
-                                <span class="tag role">الجميع</span>
-                                <span class="tag type">Godot</span>
-                            </div>
-                            <p>دروس Godot قصيرة ومركزة. مفيدة للـ Game Jams.</p>
-                            <a href="https://www.youtube.com/@Godotneers" target="_blank">🔗 القناة</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Game Maker's Toolkit</h4>
-                            <div class="tags">
-                                <span class="tag role">الطيب</span>
-                                <span class="tag type">Game Design</span>
-                            </div>
-                            <p>قناة ممتازة لفهم تصميم الألعاب. مهمة للمصممين.</p>
-                            <a href="https://www.youtube.com/@GMTK" target="_blank">🔗 القناة</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="subsection">
-                    <h3>🎮 Game Jam Specific</h3>
-                    <div class="resource-grid">
-                        <div class="resource-card">
-                            <h4>Making a Game in 48 Hours</h4>
-                            <div class="tags">
-                                <span class="tag role">الجميع</span>
-                                <span class="tag type">Game Jam</span>
-                            </div>
-                            <p>فيديو عن تجربة صنع لعبة في 48 ساعة.</p>
-                            <a href="https://www.youtube.com/watch?v=KYtJeNytXs0" target="_blank">🔗 مشاهدة</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>I learned Godot in 48 hours</h4>
-                            <div class="tags">
-                                <span class="tag role">الجميع</span>
-                                <span class="tag type">Godot Jam</span>
-                            </div>
-                            <p>Timelapse لتعلم Godot وصنع لعبة في 48 ساعة.</p>
-                            <a href="https://www.youtube.com/watch?v=5XexHQ2QHX8" target="_blank">🔗 مشاهدة</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Game Jam Tips</h4>
-                            <div class="tags">
-                                <span class="tag role">الجميع</span>
-                                <span class="tag type">نصائح</span>
-                            </div>
-                            <p>نصائح من مطورين محترفين للنجاح في Game Jams.</p>
-                            <a href="https://www.youtube.com/results?search_query=game+jam+tips" target="_blank">🔗 بحث YouTube</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Tools Section -->
-            <section id="tools" class="section">
-                <h2>🛠️ أدوات مساعدة</h2>
-
-                <div class="subsection">
-                    <h3>💬 التواصل والتعاون</h3>
-                    <div class="resource-grid">
-                        <div class="resource-card">
-                            <h4>Discord</h4>
-                            <div class="tags">
-                                <span class="tag role">الجميع</span>
-                                <span class="tag type">تواصل</span>
-                            </div>
-                            <p>أداة التواصل الأساسية للفريق. تأكدوا من إعداد server خاص.</p>
-                            <a href="https://discord.com/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>GitHub</h4>
-                            <div class="tags">
-                                <span class="tag role">غيث</span>
-                                <span class="tag type">Version Control</span>
-                            </div>
-                            <p>لإدارة الكود والتعاون. ضروري للمشاريع الجماعية.</p>
-                            <a href="https://github.com/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Trello</h4>
-                            <div class="tags">
-                                <span class="tag role">غيث</span>
-                                <span class="tag type">إدارة مشاريع</span>
-                            </div>
-                            <p>لتنظيم المهام والتتبع. بديل: Notion, Asana.</p>
-                            <a href="https://trello.com/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Miro</h4>
-                            <div class="tags">
-                                <span class="tag role">الطيب</span>
-                                <span class="tag type">Brainstorming</span>
-                            </div>
-                            <p>لوحة بيضاء تعاونية. مثالية للعصف الذهني.</p>
-                            <a href="https://miro.com/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="subsection">
-                    <h3>📝 محررات النصوص</h3>
-                    <div class="resource-grid">
-                        <div class="resource-card">
-                            <h4>VS Code</h4>
-                            <div class="tags">
-                                <span class="tag role">غيث</span>
-                                <span class="tag type">محرر نصوص</span>
-                            </div>
-                            <p>أفضل محرر نصوص مجاني. يدعم GDScript مع إضافات.</p>
-                            <a href="https://code.visualstudio.com/" target="_blank">🔗 تحميل</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Sublime Text</h4>
-                            <div class="tags">
-                                <span class="tag role">غيث</span>
-                                <span class="tag type">محرر نصوص</span>
-                            </div>
-                            <p>محرر نصوص سريع وخفيف. مجاني للتجربة.</p>
-                            <a href="https://www.sublimetext.com/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="subsection">
-                    <h3>🎬 تسجيل وعرض</h3>
-                    <div class="resource-grid">
-                        <div class="resource-card">
-                            <h4>OBS Studio</h4>
-                            <div class="tags">
-                                <span class="tag role">الجميع</span>
-                                <span class="tag type">تسجيل</span>
-                            </div>
-                            <p>لتسجيل gameplay والعرض التقديمي. مجاني ومفتوح المصدر.</p>
-                            <a href="https://obsproject.com/" target="_blank">🔗 تحميل</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>DaVinci Resolve</h4>
-                            <div class="tags">
-                                <span class="tag role">يوسف</span>
-                                <span class="tag type">مونتاج</span>
-                            </div>
-                            <p>برنامج مونتاج احترافي مجاني. للعرض التقديمي.</p>
-                            <a href="https://www.blackmagicdesign.com/products/davinciresolve" target="_blank">🔗 تحميل</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>ScreenToGif</h4>
-                            <div class="tags">
-                                <span class="tag role">الجميع</span>
-                                <span class="tag type">GIF</span>
-                            </div>
-                            <p>لإنشاء GIFs من الشاشة. مفيد للعرض على itch.io.</p>
-                            <a href="https://www.screentogif.com/" target="_blank">🔗 تحميل</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="subsection">
-                    <h3>🎨 Level Design</h3>
-                    <div class="resource-grid">
-                        <div class="resource-card">
-                            <h4>Tiled</h4>
-                            <div class="tags">
-                                <span class="tag role">الطيب</span>
-                                <span class="tag type">Tilemap</span>
-                            </div>
-                            <p>محرر tilemaps مجاني. يتكامل مع Godot.</p>
-                            <a href="https://www.mapeditor.org/" target="_blank">🔗 تحميل</a>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>LDtk</h4>
-                            <div class="tags">
-                                <span class="tag role">الطيب</span>
-                                <span class="tag type">Level Editor</span>
-                            </div>
-                            <p>محرر مستويات 2D حديث. مفتوح المصدر.</p>
-                            <a href="https://ldtk.io/" target="_blank">🔗 الذهاب للموقع</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Tips Section -->
-            <section id="tips" class="section">
-                <h2>💡 نصائح للفوز في Game Jam</h2>
-
-                <div class="quick-tips">
-                    <h3>⏰ إدارة الوقت</h3>
-                    <ul>
-                        <li><strong>الساعات الأولى (1-3 PM):</strong> عصف ذهني وتحديد الفكرة الأساسية. لا تقضوا أكثر من ساعتين!</li>
-                        <li><strong>اليوم الأول (3-9 PM):</strong> إنشاء prototype بسيط. ركزوا على الـ core gameplay.</li>
-                        <li><strong>اليوم الثاني (صباحاً):</strong> إضافة المحتوى والمستويات.</li>
-                        <li><strong>اليوم الثاني (عصراً):</strong> تحسين الرسومات والصوتيات.</li>
-                        <li><strong>آخر 6 ساعات:</strong> اختبار، إصلاح الأخطاء، والعرض التقديمي.</li>
-                        <li><strong>آخر ساعة:</strong> رفع اللعبة وكتابة الوصف. لا تتأخروا!</li>
-                    </ul>
-                </div>
-
-                <div class="quick-tips">
-                    <h3>🎯 استراتيجية النجاح</h3>
-                    <ul>
-                        <li><strong>ابدأوا بسيطاً:</strong> فكرة بسيطة منفذة بشكل جيد أفضل من فكرة معقدة غير مكتملة.</li>
-                        <li><strong>اصنعوا اللعبة قابلة للعب:</strong> تأكدوا من وجود بداية ونهاية واضحة.</li>
-                        <li><strong>الموضوع (Theme) مهم:</strong> اربطوا لعبتكم بالموضوع بشكل واضح.</li>
-                        <li><strong>اختبروا مبكراً وكثيراً:</strong> لا تنتظروا اللحظة الأخيرة لاكتشاف الأخطاء.</li>
-                        <li><strong>العرض التقديمي مهم:</strong> screenshots جيدة ووصف واضح يزيدان من فرص الفوز.</li>
-                    </ul>
-                </div>
-
-                <div class="quick-tips">
-                    <h3>👥 العمل الجماعي</h3>
-                    <ul>
-                        <li><strong>وزعوا المهام بوضوح:</strong> كل شخص يعرف مسؤولياته.</li>
-                        <li><strong>تواصلوا باستمرار:</strong> استخدموا Discord للتحديثات المستمرة.</li>
-                        <li><strong>استخدموا Git بحذر:</strong> تجنبوا الـ merge conflicts بالتنسيق.</li>
-                        <li><strong>خذوا فترات راحة:</strong> الإرهاق يقلل الإنتاجية.</li>
-                        <li><strong>دعموا بعضكم:</strong> المعنويات العالية تساعد على الإبداع.</li>
-                    </ul>
-                </div>
-
-                <div class="quick-tips">
-                    <h3>🎨 نصائح فنية</h3>
-                    <ul>
-                        <li><strong>استخدموا color palette محدودة:</strong> يوفر الوقت ويعطي تناسقاً بصرياً.</li>
-                        <li><strong>Pixel art أسرع:</strong> إذا كنتم مبتدئين، pixel art أسهل وأسرع.</li>
-                        <li><strong>استخدموا placeholder art:</strong> لا تنتظروا الرسومات النهائية لبدء البرمجة.</li>
-                        <li><strong>أعيدوا استخدام الأصول:</strong> sprite واحد يمكن استخدامه بألوان مختلفة.</li>
-                        <li><strong>الأنيميشن البسيطة كافية:</strong> 2-3 إطارات يمكن أن تكون فعالة.</li>
-                    </ul>
-                </div>
-
-                <div class="quick-tips">
-                    <h3>🎵 نصائح صوتية</h3>
-                    <ul>
-                        <li><strong>موسيقى loop واحدة كافية:</strong> لا تحتاجون 10 أغاني مختلفة.</li>
-                        <li><strong>المؤثرات الصوتية أهم من الموسيقى:</strong> ركزوا على feedback صوتي للأفعال.</li>
-                        <li><strong>استخدموا AI للسرعة:</strong> ElevenLabs وSuno يوفران الوقت.</li>
-                        <li><strong>اجعلوا الصوت قابلاً للإيقاف:</strong> بعض اللاعبين لا يحبون الصوت.</li>
-                    </ul>
-                </div>
-
-                <div class="quick-tips">
-                    <h3>💻 نصائح برمجية</h3>
-                    <ul>
-                        <li><strong>استخدموا templates:</strong> لا تبدأوا من الصفر، استخدموا Godot Game Template.</li>
-                        <li><strong>اكتبوا كوداً بسيطاً:</strong> الكود المعقد يسبب أخطاء أكثر.</li>
-                        <li><strong>استخدموا AI للمساعدة:</strong> ChatGPT وCopilot يوفران الوقت.</li>
-                        <li><strong>علقوا على الكود:</strong> سيساعدكم لاحقاً عند التصحيح.</li>
-                        <li><strong>احفظوا نسخاً احتياطية:</strong> commit على Git كل ساعة.</li>
-                    </ul>
-                </div>
-
-                <div class="highlight">
-                    <h4>🏆 معايير التقييم المتوقعة</h4>
-                    <p>عادة ما يتم تقييم ألعاب Game Jam بناءً على:</p>
-                    <ul style="margin-top: 10px;">
-                        <li><strong>الارتباط بالموضوع:</strong> مدى تطبيق theme المسابقة</li>
-                        <li><strong>Gameplay:</strong> هل اللعبة ممتعة ومتوازنة؟</li>
-                        <li><strong>الإبداع:</strong> هل الفكرة أصلية ومبتكرة؟</li>
-                        <li><strong>الرسومات:</strong> الجودة البصرية والتناسق</li>
-                        <li><strong>الصوت:</strong> الموسيقى والمؤثرات الصوتية</li>
-                        <li><strong>التلميع:</strong> مدى اكتمال اللعبة وخلوها من الأخطاء</li>
-                    </ul>
-                </div>
-
-                <div class="subsection">
-                    <h3>📋 Checklist قبل التسليم</h3>
-                    <div class="resource-grid">
-                        <div class="resource-card">
-                            <h4>✅ قائمة التحقق النهائية</h4>
-                            <div class="tags">
-                                <span class="tag role">الجميع</span>
-                            </div>
-                            <p>
-                                ☐ اللعبة تعمل بدون أخطاء كبيرة<br>
-                                ☐ هناك بداية ونهاية واضحة<br>
-                                ☐ التحكم واضح ومشروح<br>
-                                ☐ الصوت يعمل ويمكن إيقافه<br>
-                                ☐ اللعبة مرتبطة بالـ theme<br>
-                                ☐ تم رفع build يعمل<br>
-                                ☐ screenshots جذابة<br>
-                                ☐ وصف واضح وشامل<br>
-                                ☐ credits لجميع الأصول المستخدمة<br>
-                                ☐ تم الاختبار على أجهزة مختلفة
-                            </p>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>📝 العرض التقديمي</h4>
-                            <div class="tags">
-                                <span class="tag role">الجميع</span>
-                            </div>
-                            <p>
-                                <strong>ما يجب تضمينه:</strong><br>
-                                • عنوان جذاب<br>
-                                • وصف قصير (2-3 جمل)<br>
-                                • كيفية اللعب (التحكم)<br>
-                                • الهدف من اللعبة<br>
-                                • screenshots/GIFs<br>
-                                • فيديو gameplay (إن أمكن)<br>
-                                • أسماء الفريق<br>
-                                • credits للأصول
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Game Ideas Section -->
-            <section class="section">
-                <h2>💭 أفكار ألعاب سريعة التطوير</h2>
-                
-                <div class="highlight">
-                    <h4>⚠️ ملاحظة</h4>
-                    <p>هذه أفكار عامة. ستحتاجون لتكييفها مع الموضوع (Theme) الذي سيُعلن عنه في حفل الانطلاق!</p>
-                </div>
-
-                <div class="subsection">
-                    <h3>🎮 أنواع ألعاب مناسبة لـ 48 ساعة</h3>
-                    <div class="resource-grid">
-                        <div class="resource-card">
-                            <h4>Platformer</h4>
-                            <p>لعبة قفز ومنصات بسيطة. سهلة التطوير في Godot. أضيفوا twist إبداعي للموضوع.</p>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Puzzle Game</h4>
-                            <p>ألعاب الألغاز لا تحتاج رسومات معقدة. ركزوا على الـ mechanics المبتكرة.</p>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Top-Down Shooter</h4>
-                            <p>منظور من الأعلى مع إطلاق نار. بسيط برمجياً ومرن للتخصيص.</p>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Endless Runner</h4>
-                            <p>لعبة جري لا نهائية. سهلة التطوير وممتعة. أضيفوا power-ups وعقبات.</p>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Tower Defense</h4>
-                            <p>دفاع عن برج. يمكن تبسيطه لـ 48 ساعة. ركزوا على 3-4 أبراج فقط.</p>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Point and Click</h4>
-                            <p>لعبة مغامرة بسيطة. تعتمد على القصة أكثر من الـ mechanics.</p>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Rhythm Game</h4>
-                            <p>لعبة إيقاع بسيطة. مثل Guitar Hero مبسط. ممتعة ومميزة.</p>
-                        </div>
-
-                        <div class="resource-card">
-                            <h4>Physics-Based</h4>
-                            <p>لعبة تعتمد على الفيزياء. Godot لديه physics engine قوي.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Emergency Resources -->
-            <section class="section">
-                <h2>🆘 موارد الطوارئ</h2>
-                
-                <div class="highlight">
-                    <h4>🚨 عندما تواجهون مشكلة</h4>
-                    <p>لا تضيعوا الوقت! استخدموا هذه الموارد للحصول على مساعدة سريعة:</p>
-                </div>
-
-                <div class="resource-grid">
-                    <div class="resource-card">
-                        <h4>Godot Discord</h4>
-                        <div class="tags">
-                            <span class="tag role">الجميع</span>
-                        </div>
-                        <p>مجتمع Godot على Discord. مساعدة سريعة من المطورين.</p>
-                        <a href="https://discord.gg/godotengine" target="_blank">🔗 الانضمام</a>
-                    </div>
-
-                    <div class="resource-card">
-                        <h4>Godot Reddit</h4>
-                        <div class="tags">
-                            <span class="tag role">الجميع</span>
-                        </div>
-                        <p>مجتمع r/godot. اسألوا أسئلتكم وابحثوا عن حلول.</p>
-                        <a href="https://www.reddit.com/r/godot/" target="_blank">🔗 الذهاب</a>
-                    </div>
-
-                    <div class="resource-card">
-                        <h4>Godot Q&A</h4>
-                        <div class="tags">
-                            <span class="tag role">الجميع</span>
-                        </div>
-                        <p>منتدى الأسئلة والأجوبة الرسمي لـ Godot.</p>
-                        <a href="https://ask.godotengine.org/" target="_blank">🔗 الذهاب</a>
-                    </div>
-
-                    <div class="resource-card">
-                        <h4>Stack Overflow</h4>
-                        <div class="tags">
-                            <span class="tag role">غيث</span>
-                        </div>
-                        <p>للأسئلة البرمجية. ابحثوا قبل السؤال!</p>
-                        <a href="https://stackoverflow.com/questions/tagged/godot" target="_blank">🔗 الذهاب</a>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Publishing Section -->
-            <section class="section">
-                <h2>🚀 نشر اللعبة</h2>
-
-                <div class="resource-grid">
-                    <div class="resource-card">
-                        <h4>Itch.io</h4>
-                        <div class="tags">
-                            <span class="tag role">الجميع</span>
-                            <span class="tag type">نشر</span>
-                        </div>
-                        <p>أفضل منصة لنشر ألعاب Game Jam. سهلة الاستخدام ومجانية.</p>
-                        <a href="https://itch.io/" target="_blank">🔗 الذهاب للموقع</a>
-                    </div>
-
-                    <div class="resource-card">
-                        <h4>Godot Export Templates</h4>
-                        <div class="tags">
-                            <span class="tag role">غيث</span>
-                            <span class="tag type">تصدير</span>
-                        </div>
-                        <p>دليل تصدير الألعاب من Godot لمنصات مختلفة.</p>
-                        <a href="https://docs.godotengine.org/en/stable/tutorials/export/index.html" target="_blank">🔗 الدليل</a>
-                    </div>
-
-                    <div class="resource-card">
-                        <h4>HTML5 Export</h4>
-                        <div class="tags">
-                            <span class="tag role">غيث</span>
-                            <span class="tag type">Web</span>
-                        </div>
-                        <p>تصدير اللعبة للويب. يسمح باللعب مباشرة في المتصفح.</p>
-                        <a href="https://docs.godotengine.org/en/stable/tutorials/export/exporting_for_web.html" target="_blank">🔗 الدليل</a>
-                    </div>
-                </div>
-            </section>
-
-        </div>
-
-        <footer>
-            <h3>🎮 حظاً موفقاً يا فريق MAQLUBA! 🎮</h3>
-            <p style="margin-top: 15px;">تذكروا: الأهم هو الاستمتاع والتعلم. المسابقة فرصة للنمو والإبداع!</p>
-            <p style="margin-top: 10px; font-size: 0.9em;">📅 13-15 نوفمبر 2025 | 🏆 Rising Devs Godot Game Jam</p>
-            <p style="margin-top: 15px; font-size: 0.85em; opacity: 0.8;">
-                تم إنشاء هذا المرجع خصيصاً لفريق MAQLUBA<br>
-                جميع الروابط محدثة حتى نوفمبر 2025
-            </p>
-        </footer>
-    </div>
-
-    <script>
-        // Search functionality
-        const searchInput = document.querySelector('.search-box input');
-        if (searchInput) {
-            searchInput.addEventListener('input', function(e) {
-                const searchTerm = e.target.value.toLowerCase();
-                const cards = document.querySelectorAll('.resource-card');
-                
-                cards.forEach(card => {
-                    const text = card.textContent.toLowerCase();
-                    if (text.includes(searchTerm)) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        }
-
-        // Smooth scrolling for navigation
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Add animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.resource-card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'opacity 0.5s, transform 0.5s';
-            observer.observe(card);
-        });
-    </script>
-</body>
-</html>
